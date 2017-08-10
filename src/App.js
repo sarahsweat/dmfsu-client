@@ -29,10 +29,10 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
       <div>
-        <HomeContainer users={this.state.users}/>
+        <HomeContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations}/>
       </div>
     );
   }
