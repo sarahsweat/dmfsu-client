@@ -1,13 +1,14 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Feed } from 'semantic-ui-react'
 import DonationCard from './DonationCard'
 
 
 const DonationList = (props) => {
+  
   return (
-    <Card.Group centered='true' itemsPerRow={5}>
-      {props.donations.map( (donation, index) => <DonationCard donation={donation} index={index}/>)}
-    </Card.Group>
+    <Feed centered='true' >
+      {props.donations.map( (donation, index) => <DonationCard donation={donation} index={index}/>).slice(-5)}
+    </Feed>
   )
 
 }

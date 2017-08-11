@@ -1,16 +1,21 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+
 
 const TeamCard = (props) => {
 
   return (
     <Card centered='true' key={props.index}>
-    <Image src={props.team.photo} className='card-image' />
+    <Image src={props.team.photo} />
      <Card.Content >
-       <Card.Header >
-          {props.team.name}
-       </Card.Header>
-       {/* <Card.Meta><b>Total Raised: ${props.user.donations_received.reduce((sum, value) => sum + value.amount, 0)}</b></Card.Meta> */}
+       <Link to={`/teams/${props.team.id}`}>
+         <Card.Header >
+            {props.team.name}
+         </Card.Header>
+      </Link>
+       <Card.Meta><b>Total Raised: ${props.team.team_total}</b>
+      </Card.Meta>
        <Card.Description>
         {props.team.bio.substring(0,52)}
        </Card.Description>

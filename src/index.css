@@ -1,9 +1,6 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 10;
   font-family: sans-serif;
-  /*background: url('http://images.all-free-download.com/images/graphiclarge/clouds_in_sky_background_192377.jpg')!important;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: bottom;*/
+  /*background: #CEB888!important;*/
 }

@@ -1,22 +1,24 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Feed, Icon, Image } from 'semantic-ui-react'
 
 const DonationCard = (props) => {
 
   return (
-    <Card centered='true' key={props.index}>
-     <Card.Content >
-       <Card.Header >
-          ${props.donation.amount}
-       </Card.Header>
-       <Card.Meta>
-         {props.donation.donor.first_name} donated to {props.donation.dancer.first_name}
-       </Card.Meta>
-       <Card.Description>
-        {props.donation.message}
-       </Card.Description>
-     </Card.Content>
-   </Card>
+    <Feed.Event centered='true' key={props.index}>
+
+      <Feed.Label>
+        <img src={props.donation.donor.photo} />
+      </Feed.Label>
+      <Feed.Content>
+        <Feed.Summary>
+          <a>{props.donation.donor.first_name}</a> donated <a>${props.donation.amount}</a> to <a>{props.donation.dancer.first_name}</a>
+          <Feed.Date>{props.donation.created_at}</Feed.Date>
+        </Feed.Summary>
+        <Feed.Extra text>
+          {props.donation.message}
+       </Feed.Extra>
+     </Feed.Content>
+ </Feed.Event>
   )
 }
 

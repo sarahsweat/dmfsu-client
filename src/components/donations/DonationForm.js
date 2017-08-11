@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
-import { Container, Form, Button } from 'semantic-ui-react'
+import { Header, Container, Form, Button, Label, Input, Dropdown } from 'semantic-ui-react'
+
+
 
 export default class DonationForm extends Component {
-  state = {
-      donor_id: 0,
-      dancer_id: 0,
-      amount: 0,
+  constructor(props){
+    super(props)
+
+    this.state = {
+      donor_id: undefined,
+      dancer_id: undefined,
+      amount: '',
       message: '',
-      donation_id: 0
+      donation_id: ''
     }
+  }
 
     handleChange = (event) => {
       let key = `${event.target.name}`
@@ -16,6 +22,14 @@ export default class DonationForm extends Component {
       this.setState({
         [key]: value
       })
+    }
+
+    handleDonorDropdown = (e,data) => {
+      this.setState({ donor_id: data.value })
+    }
+
+    handleDancerDropdown = (e,data) => {
+      this.setState({ dancer_id: data.value })
     }
 
     handleSubmit = (event) => {
@@ -28,17 +42,37 @@ export default class DonationForm extends Component {
         'accept': 'application/json',
       }
     })
-    //.then(() => this.props.handlePost())
+    .then(() => this.props.handlePost())
+    .then(() => this.setState({
+      donor_id: undefined,
+      dancer_id: undefined,
+      amount: '',
+      message: '',
+      donation_id: ''
+    }))
   }
 
     render(){
+      const userOptions = this.props.users.map((user,index) => { return {
+        key: index,
+        text: `${user.first_name} ${user.last_name}`,
+        value: user.id,
+        image: {
+          avatar: true,
+          src: user.photo
+        }
+      }
+    })
       return(
         <Container>
+          <Header as='h2' textAlign='center'>Make a Donation!</Header>
            <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
-             <Form.Input label='Donor' name='donor_id' onChange={this.handleChange} />
-             <Form.Input label='Dancer' name='dancer_id' onChange={this.handleChange} />
-             <Form.Input label='Amount' name='amount' onChange={this.handleChange} />
-             <Form.Input label='Message' name='message' onChange={this.handleChange} />
+             <Form.Group widths='equal'>
+               <Form.Dropdown label="Donor" placeholder='Donor' name='donor_id' value={this.state.donor_id} fluid selection options={userOptions} onChange={this.handleDonorDropdown} />
+               <Form.Dropdown label="Dancer" placeholder='Dancer' name='dancer_id' value={this.state.dancer_id} fluid selection options={userOptions} onChange={this.handleDancerDropdown} />
+               <Form.Input label="Amount" labelPosition='left' type='text'><Label basic>$</Label><Input name='amount' value={this.state.amount} placeholder='Amount' onChange={this.handleChange}/></Form.Input>
+             </Form.Group>
+             <Form.Input label="Message" placeholder='Message' name='message' value={this.state.message} onChange={this.handleChange} />
              <Button type='submit'>Make Donation</Button>
            </Form>
         </Container>
