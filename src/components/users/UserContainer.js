@@ -9,7 +9,7 @@ const UserContainer = (props) => {
     <Container textAlign='center'>
       <Header as='h2' textAlign='center'>Fundraisers</Header>
       <Search handleSearch={props.handleSearch}/>
-      <UserList users={props.users} />
+      <UserList users={props.users.sort(function(a,b) {return (a.individual_total < b.individual_total) ? 1 : ((b.individual_total < a.individual_total) ? -1 : 0);} )} />
     </Container>
   )
 

@@ -22,7 +22,7 @@ export default class HomeContainer extends Component {
         <Container textAlign='center'>
           <Statistic.Group widths='one'>
             <Statistic size='large' value='Dance Marathon'/>
-            <Statistic size='medium' value='Florida State University' />
+            <Statistic value='Florida State University' />
             <Statistic size='large' value='2018' />
           </Statistic.Group>
 
@@ -44,11 +44,11 @@ export default class HomeContainer extends Component {
             <Grid.Row columns={2}>
               <Grid.Column>
                 <Header as='h2' textAlign='center'>Recent Donations</Header>
-                <DonationList donations={this.props.donations} />
+                <DonationList donations={this.props.donations.slice(-5)} />
               </Grid.Column>
               <Grid.Column>
                 <Header as='h2' textAlign='center'>Relive DM 2017!</Header>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowfullscreen></iframe>
               </Grid.Column>
             </Grid.Row>
           </Grid>

@@ -4,10 +4,10 @@ import DonationCard from './DonationCard'
 
 
 const DonationList = (props) => {
-  
+
   return (
     <Feed centered='true' >
-      {props.donations.map( (donation, index) => <DonationCard donation={donation} index={index}/>).slice(-5)}
+      {props.donations.map( (donation, index) => <DonationCard donation={donation} index={index}/>)}
     </Feed>
   )
 

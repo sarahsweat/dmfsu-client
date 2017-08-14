@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Container, Header } from 'semantic-ui-react'
+import { Card, Container } from 'semantic-ui-react'
 import TeamCard from './TeamCard'
 
 

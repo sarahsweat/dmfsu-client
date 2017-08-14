@@ -1,41 +1,13 @@
 import React, { Component } from 'react'
 import { Header, Container, Form, Button, Label, Input } from 'semantic-ui-react'
 
-export default class UserForm extends Component {
-  state = {
-      user_id: '',
-      first_name: '',
-      last_name: '',
-      email: '',
-      zip: '',
-      photo: '',
-      bio: '',
-      goal: 500,
-      team_id: undefined,
-      team_captain: false
-    }
+export default class UserEditForm extends Component {
+  constructor(props){
+    super(props)
 
-    handleChange = (event) => {
-      let key = `${event.target.name}`
-      let value = `${event.target.value}`
-      this.setState({
-        [key]: value
-      })
-    }
-
-    handleSubmit = (event) => {
-      event.preventDefault()
-      fetch('http://localhost:3000/api/v1/users', {
-        method: 'POST',
-        body: JSON.stringify(this.state),
-        headers: {
-          'content-type': 'application/json',
-          'accept': 'application/json',
-        }
-      })
-      .then(() => this.props.handlePost())
-      .then(() => this.setState({
-        user_id: '',
+    this.state = {
+      user: {
+        id: '',
         first_name: '',
         last_name: '',
         email: '',
@@ -45,11 +17,57 @@ export default class UserForm extends Component {
         goal: 500,
         team_id: undefined,
         team_captain: false
+      }
+    }
+
+  }
+
+    componentWillMount() {
+      fetch(`http://localhost:3000/api/v1/users/${window.location.pathname.slice(7)}`)
+      .then(data => data.json())
+      .then(user => this.setState({user}))
+    }
+
+    handleChange = (event) => {
+      let key = `${event.target.name}`
+      let value = `${event.target.value}`
+      this.setState({
+        user: {
+          [key]: value
+        }
+      })
+
+    }
+
+    handleSubmit = (event) => {
+      event.preventDefault()
+      fetch(`http://localhost:3000/api/v1/users/${window.location.pathname.slice(7)}`, {
+        method: 'PUT',
+        body: JSON.stringify({id: window.location.pathname.slice(7), goal: 2000}),
+        headers: {
+          'content-type': 'application/json',
+          'accept': 'application/json',
+        }
+      })
+      .then(() => this.props.handlePost())
+      .then(() => this.setState({
+        user: {
+          id: '',
+          first_name: '',
+          last_name: '',
+          email: '',
+          zip: '',
+          photo: '',
+          bio: '',
+          goal: 500,
+          team_id: undefined,
+          team_captain: false
+        }
       }))
     }
 
     handleTeamDropdown = (e,data) => {
-      this.setState({ team_id: data.value })
+      this.setState({ user: {team_id: data.value} })
     }
 
     render(){
@@ -65,7 +83,7 @@ export default class UserForm extends Component {
     })
       return(
         <Container>
-          <Header as='h2' textAlign='center'>Signup to be a fundraiser!</Header>
+          <Header as='h2' textAlign='center'>Edit this fundraiser!</Header>
            <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
             <Form.Group widths='equal'>
              <Form.Input label='First Name' name='first_name' value={this.state.first_name} onChange={this.handleChange} />
@@ -79,7 +97,7 @@ export default class UserForm extends Component {
              <Form.Input label='Photo Link' name='photo' value={this.state.photo} onChange={this.handleChange} />
             </Form.Group>
              <Form.Input label='Bio' name='bio' value={this.state.bio} onChange={this.handleChange} />
-             <Button type='submit'>Signup</Button>
+             <Button type='submit'>Save</Button>
            </Form>
         </Container>
       )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Form, Button, Label, Input, Dropdown } from 'semantic-ui-react'
+import { Header, Container, Form, Button, Label, Input } from 'semantic-ui-react'
 
 
 
@@ -10,9 +10,9 @@ export default class DonationForm extends Component {
     this.state = {
       donor_id: undefined,
       dancer_id: undefined,
-      amount: '',
-      message: '',
-      donation_id: ''
+      amount: undefined,
+      message: undefined,
+      donation_id: undefined
     }
   }
 

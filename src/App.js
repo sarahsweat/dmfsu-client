@@ -7,7 +7,7 @@ import UserProfileContainer from './components/users/UserProfileContainer'
 import TeamProfileContainer from './components/teams/TeamProfileContainer'
 import TeamContainer from './components/teams/TeamContainer'
 import NavBar from './components/NavBar'
-import { BrowserRouter as Router, Route, Redirect, Link, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 class App extends Component {
@@ -85,11 +85,11 @@ class App extends Component {
           <Route path='/signup' render={() => {return <UserForm teams={this.state.teams} handlePost={this.handlePost}/>}} />
           <Route exact path='/users' render={() => {return <UserContainer handleSearch={this.handleUserSearch} users={this.state.currentUsers}/>}} />
           <Route exact path='/teams' render={() => {return <TeamContainer handleSearch={this.handleTeamSearch} teams={this.state.currentTeams}/>}} />
-          <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} />}} />
+          <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} />}} />
           <Route path='/teams/:id' render={() => {return <TeamProfileContainer />}} />
         </div>
       </Router>
-    
+
     );
   }
 }

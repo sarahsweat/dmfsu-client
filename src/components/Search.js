@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button, Form, Header } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 
 class Search extends React.Component {
 
