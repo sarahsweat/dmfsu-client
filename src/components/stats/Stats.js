@@ -24,8 +24,8 @@ const Stats = (props) => {
       </Statistic>
     </Statistic.Group>
     <Divider/>
-    <Header as='h2' textAlign='center'>We are {Math.round((props.donations.reduce((sum, value) => sum + value.amount, 0)/10000)*100)}% of the way to our goal of ${(10000).toLocaleString()}!</Header>
-    <Progress percent={Math.round((props.donations.reduce((sum, value) => sum + value.amount, 0)/10000)*100)} progress success/>
+    <Header as='h2' textAlign='center'>We are {Math.round((props.donations.reduce((sum, value) => sum + value.amount, 0)/100000)*100)}% of the way to our goal of ${(100000).toLocaleString()}!</Header>
+    <Progress percent={Math.round((props.donations.reduce((sum, value) => sum + value.amount, 0)/100000)*100)} progress success/>
   </Container>
   )
 

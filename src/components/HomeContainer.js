@@ -6,6 +6,7 @@ import DonationList from './donations/DonationList'
 import DonationForm from './donations/DonationForm'
 import UserForm from './users/UserForm'
 import Stats from './stats/Stats'
+import MilestonesContainer from './milestones/MilestonesContainer'
 import { Container, Header, Image, Divider, Statistic, Grid } from 'semantic-ui-react'
 
 import '../index.css'
@@ -17,6 +18,7 @@ export default class HomeContainer extends Component {
 
   render() {
     return (
+      this.props.users ?
       <div>
       <br/><br/>
         <Container textAlign='center'>
@@ -65,6 +67,10 @@ export default class HomeContainer extends Component {
 
           <Divider />
 
+          <MilestonesContainer users={this.props.users} donations={this.props.donations} handlePost={this.props.handlePost}/>
+
+          <Divider />
+
           <DonationForm handlePost={this.props.handlePost} users={this.props.users}/>
 
           <Divider />
@@ -79,6 +85,7 @@ export default class HomeContainer extends Component {
 
       </Container>
       </div>
+      : null
 
     )
   }
