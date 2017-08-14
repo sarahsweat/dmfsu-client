@@ -24,15 +24,14 @@ export default class UserProfileContainer extends React.Component {
   }
 
   render() {
-    const userDonations = this.props.donations.filter( d =>  d.dancer_id === this.state.user.id)
-    const rank = this.props.users.sort(function(a,b) {return (a.individual_total < b.individual_total) ? 1 : ((b.individual_total < a.individual_total) ? -1 : 0);}).indexOf(this.state.user)
+
     return (
       this.state.user.donations_received ?
       <Container>
         <Grid divided='vertically'>
           <Grid.Row columns={2}>
             <Grid.Column>
-              <Image src={this.state.user.photo} centered='true' size='large' shape='rounded'/>
+              <Image src={this.state.user.photo} centered='true' size='huge' shape='rounded'/>
             </Grid.Column>
             <Grid.Column>
               <Header as='h1' textAlign='center'>{this.state.user.first_name} {this.state.user.last_name}</Header>
@@ -42,28 +41,29 @@ export default class UserProfileContainer extends React.Component {
               <Progress percent={Math.round((this.state.user.individual_total / this.state.user.goal)*100)} progress success />
               {this.state.user.individual_total > 1000 ? <Header as='h1' textAlign='center'>COMMA CLUB MEMBER!!</Header> : null }
               <Image src='comma.png'/>
-              <Statistic.Group>
+              <Statistic.Group widths={2}>
                 <Statistic>
-                  <Statistic.Value> {userDonations.length}</Statistic.Value>
+                  <Statistic.Value> {this.state.user.donations_received.length}</Statistic.Value>
                   <Statistic.Label>Donations</Statistic.Label>
                 </Statistic>
                 <Statistic>
                   <Statistic.Value>${this.state.user.individual_total.toLocaleString()}</Statistic.Value>
                   <Statistic.Label>Raised</Statistic.Label>
                 </Statistic>
-                <Statistic>
+                {/* <Statistic>
                   <Statistic.Label>Overall Rank</Statistic.Label>
-                  <Statistic.Value>{rank}</Statistic.Value>
-                </Statistic>
+                  <Statistic.Value>{}</Statistic.Value>
+                </Statistic> */}
               </Statistic.Group>
+              <Header as='h1' textAlign='center'>{this.state.user.first_name}'s Recent Donations</Header>
+              <DonationList donations={this.props.donations.filter(d => d.dancer_id === this.state.user.id).sort(function(a,b) {return (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0);} ).slice(0,5) } />
             </Grid.Column>
           </Grid.Row>
         </Grid>
         <Divider />
         <UserEditForm handlePost={this.props.handlePost}  teams={this.props.teams}/>
         <Divider />
-        <Header as='h1' textAlign='center'>{this.state.user.first_name}'s Donations</Header>
-        <DonationList donations={userDonations.slice(10)} />
+        <Divider />
       </Container>
       : null
     )

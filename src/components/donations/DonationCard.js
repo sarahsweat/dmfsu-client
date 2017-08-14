@@ -11,7 +11,7 @@ const DonationCard = (props) => {
       </Feed.Label>
       <Feed.Content>
         <Feed.Summary>
-          <a>{props.donation.donor.first_name}</a> donated <a>${props.donation.amount}</a> to <a>{props.donation.dancer.first_name}</a>
+          {props.donation.donor.first_name} donated ${props.donation.amount} to {props.donation.dancer.first_name}
           <Feed.Date>{props.donation.date}</Feed.Date>
         </Feed.Summary>
         <Feed.Extra text>
