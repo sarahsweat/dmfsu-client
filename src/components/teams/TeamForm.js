@@ -20,7 +20,7 @@ export default class TeamForm extends Component {
 
     handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/api/v1/teams', {
+    fetch(process.env.REACT_APP_API + '/teams', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {

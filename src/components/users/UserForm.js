@@ -25,7 +25,7 @@ export default class UserForm extends Component {
 
     handleSubmit = (event) => {
       event.preventDefault()
-      fetch('http://localhost:3000/api/v1/users', {
+      fetch(process.env.REACT_APP_API + '/users', {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {

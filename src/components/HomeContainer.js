@@ -78,9 +78,9 @@ export default class HomeContainer extends Component {
 
           <UserForm handlePost={this.props.handlePost}  teams={this.props.teams}/>
 
-          <Divider />
+        
 
-          <TeamForm handlePost={this.props.handlePost}/>
+
 
           <Divider />
 

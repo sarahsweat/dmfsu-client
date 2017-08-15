@@ -34,7 +34,7 @@ export default class DonationForm extends Component {
 
     handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/api/v1/donations', {
+    fetch(process.env.REACT_APP_API + '/donations', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {

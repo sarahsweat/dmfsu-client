@@ -26,7 +26,7 @@ export default class TeamProfileContainer extends React.Component {
           <Grid divided='vertically'>
             <Grid.Row columns={2}>
               <Grid.Column>
-                <Image src={this.state.team.photo} size='medium' centered='true'/>
+                <Image src={this.state.team.photo} size='massive' centered='true'/>
               </Grid.Column>
               <Grid.Column>
                 <Header as='h1' textAlign='center'>{this.state.team.name}</Header>

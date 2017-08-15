@@ -93,7 +93,7 @@ class App extends Component {
           <Route path='/donate' render={() => {return <DonationForm handlePost={this.handlePost} users={this.state.users}/>}} />
           <Route path='/signup' render={() => {return <UserForm teams={this.state.teams} handlePost={this.handlePost}/>}} />
           <Route exact path='/users' render={() => {return <UserContainer handleSearch={this.handleUserSearch} users={this.state.currentUsers}/>}} />
-          <Route exact path='/teams' render={() => {return <TeamContainer handleSearch={this.handleTeamSearch} teams={this.state.currentTeams}/>}} />
+          <Route exact path='/teams' render={() => {return <TeamContainer handleSearch={this.handleTeamSearch} teams={this.state.currentTeams} handlePost={this.handlePost}/>}} />
           <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} />}} />
           <Route path='/teams/:id' render={() => {return <TeamProfileContainer />}} />
         </div>
