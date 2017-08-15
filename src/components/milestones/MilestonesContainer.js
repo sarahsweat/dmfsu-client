@@ -6,16 +6,16 @@ export default class MilestonesContainer extends React.Component {
   constructor(props){
     super(props)
 
-    this.state = {
-      data: []
-    }
-  }
 
-  componentWillMount = () => {
-    fetch('http://localhost:3000/api/v1/graph')
-    .then(data => data.json())
-    .then(data => this.setState({data}))
+
+
   }
+  //
+  // componentWillMount = () => {
+  //   fetch('http://localhost:3000/api/v1/graph')
+  //   .then(data => data.json())
+  //   .then(data => this.setState({data}))
+  // }
 
   render() {
   return (
@@ -26,29 +26,34 @@ export default class MilestonesContainer extends React.Component {
             <Image src='./Milestones.png'/>
           </Grid.Column>
           <Grid.Column>
-            <Bar  type='bar' data={
-              {   labels: ["$300", "$500", "$750", "$1000", "$1500", "$2000", "$2300"],
-                  datasets: [{
-                    label: "Dancers",
-                    data: this.state.data,
-                    backgroundColor: '#782f40',
-                    hoverBackgroundColor: '#CEB888'}]
-            }}
+            <Bar  type='bar'
+                  data={
+                      { labels: ["$300", "$500", "$750", "$1000", "$1500", "$2000", "$2300"],
+                        datasets: [{
+                          label: "# of Dancers",
+                          data: this.props.data,
+                          backgroundColor: '#782f40',
+                          hoverBackgroundColor: '#CEB888'}]
+                  }}
             options={{maintainAspectRatio: false,
+                          title:{
+                              display: true,
+                              text: "Money Raised",
+                              fontSize: 15,
+                              position: "bottom",
+                              fontColor: "black"
+                            },
                         scales: {
                           yAxes: [{
                             ticks: {
-                                beginAtZero: true
-                            }
-                          }]
+                                  beginAtZero: true
+                              }
+                            }]
                         }
-                      }}
-          />
+                      }}  />
           </Grid.Column>
         </Grid.Row>
       </Grid>
-
     </Container>
-
   )}
 }

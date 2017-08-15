@@ -18,7 +18,7 @@ export default class UserProfileContainer extends React.Component {
   }
 
   componentWillMount() {
-    fetch(`http://localhost:3000/api/v1/users/${window.location.pathname.slice(7)}`)
+    fetch(process.env.REACT_APP_API + `users/${window.location.pathname.slice(7)}`)
     .then(data => data.json())
     .then(user => this.setState({user}))
   }

@@ -30,7 +30,7 @@ export default class HomeContainer extends Component {
 
           <br/>
 
-          <Image src='2017Total.jpg' />
+          <Image src='2017Total.jpg' shape='rounded' />
 
           <br/>
 
@@ -67,7 +67,8 @@ export default class HomeContainer extends Component {
 
           <Divider />
 
-          <MilestonesContainer users={this.props.users} donations={this.props.donations} handlePost={this.props.handlePost}/>
+          <Header as='h2' textAlign='center'>Miracle Milestones</Header>
+          <MilestonesContainer users={this.props.users} data={this.props.data}/>
 
           <Divider />
 
@@ -80,6 +81,21 @@ export default class HomeContainer extends Component {
           <Divider />
 
           <TeamForm handlePost={this.props.handlePost}/>
+
+          <Divider />
+
+          <Header as='h2' textAlign='center'>Our Beneficiaries</Header>
+          <Grid divided='vertically'>
+            <Grid.Row columns={2}>
+              <Grid.Column>
+                <Image src='https://samaritanhealth.com/images/CMNHospitals.png' size='medium' centered='true'/>
+              </Grid.Column>
+              <Grid.Column style={{marginTop: "25"}}>
+
+                <Image src='http://med.fsu.edu/userFiles/image/VERT_COM_Logo%20(1).png' size='large' />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
 
           <Divider />
 
