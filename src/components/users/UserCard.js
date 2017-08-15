@@ -7,7 +7,7 @@ const UserCard = (props) => {
 
   return (
       props.user.individual_total >= 0 ?
-      <Card  key={props.index} >
+      <Card className="shadow-box-images" key={props.index} >
         <Image src={props.user.photo} className='card-image' />
         <Card.Content  >
           <Link to={`/users/${props.user.id}`}>
@@ -23,11 +23,11 @@ const UserCard = (props) => {
           {props.user.bio.substring(0,52)}
          </Card.Description>
        </Card.Content>
-       <Card.Content extra>
+       {/* <Card.Content extra>
          <div centered='true'>
            <Button basic color='red'>Donate to {props.user.first_name}</Button>
          </div>
-       </Card.Content>
+       </Card.Content> */}
      </Card>
      : null
     )

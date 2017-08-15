@@ -33,7 +33,7 @@ export default class MilestonesContainer extends React.Component {
                           label: "# of Dancers",
                           data: this.props.data,
                           backgroundColor: '#782f40',
-                          hoverBackgroundColor: '#CEB888'}]
+                          hoverBackgroundColor: '#000000'}]
                   }}
             options={{maintainAspectRatio: false,
                           title:{

@@ -22,11 +22,11 @@ export default class TeamProfileContainer extends React.Component {
   render() {
     return (
       this.state.team.dancers ?
-        <Container>
+        <Container  centered='true' textAlign='center'>
           <Grid divided='vertically'>
             <Grid.Row columns={2}>
               <Grid.Column>
-                <Image src={this.state.team.photo} size='massive' centered='true'/>
+                <Image src={this.state.team.photo} size='massive' centered='true' className='shadow-box'/>
               </Grid.Column>
               <Grid.Column>
                 <Header as='h1' textAlign='center'>{this.state.team.name}</Header>
@@ -37,7 +37,7 @@ export default class TeamProfileContainer extends React.Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-          <Header as='h3' textAlign='center'>{this.state.team.name}'s dancers</Header>
+          <Header as='h2' textAlign='center'>{this.state.team.name}'s dancers</Header>
           <UserList users={this.state.team.dancers} />
         </Container>
       : null

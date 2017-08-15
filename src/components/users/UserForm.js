@@ -64,10 +64,10 @@ export default class UserForm extends Component {
       }
     })
       return(
-        <Container>
-          <Header as='h2' textAlign='center'>Signup to be a fundraiser!</Header>
-           <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
-            <Form.Group widths='equal'>
+      <Container>
+        <Header as='h2' textAlign='center'>Signup to be a fundraiser!</Header>
+        <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
+           <Form.Group widths='equal'>
              <Form.Input label='First Name' name='first_name' value={this.state.first_name} onChange={this.handleChange} />
              <Form.Input label='Last name' name='last_name' value={this.state.last_name} onChange={this.handleChange} />
              <Form.Input label='Goal' labelPosition='left' type='text'><Label basic>$</Label><Input name='goal' value={this.state.goal} onChange={this.handleChange}/></Form.Input>
@@ -77,11 +77,11 @@ export default class UserForm extends Component {
              <Form.Input label='Zipcode' name='zip' value={this.state.zip} onChange={this.handleChange} />
              <Form.Dropdown label="Team" placeholder='Team' name='team_id' value={this.state.team_id} fluid selection options={teamOptions} onChange={this.handleTeamDropdown} />
              <Form.Input label='Photo Link' name='photo' value={this.state.photo} onChange={this.handleChange} />
-            </Form.Group>
-             <Form.Input label='Bio' name='bio' value={this.state.bio} onChange={this.handleChange} />
-             <Button type='submit'>Signup</Button>
-           </Form>
-        </Container>
+           </Form.Group>
+           <Form.Input label='Bio' name='bio' value={this.state.bio} onChange={this.handleChange} />
+           <Button type='submit'>Signup</Button>
+        </Form>
+      </Container>
       )
     }
 }

@@ -2,5 +2,18 @@ body {
   margin: 0;
   padding: 10;
   font-family: sans-serif;
-  /*background: #CEB888!important;*/
+  background: #e2cc9c!important;
+}
+
+.shadow-box-images {
+  box-shadow: 3px 3px 10px rgba(10, 10, 10, .5)!important;
+  transition-duration: .5s!important;
+}
+
+.shadow-box-images:hover {
+  transform: scale(1.1);
+}
+
+.shadow-box {
+  box-shadow: 3px 3px 10px rgba(10, 10, 10, .5)!important;
 }

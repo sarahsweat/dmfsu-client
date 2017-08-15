@@ -30,7 +30,8 @@ export default class HomeContainer extends Component {
 
           <br/>
 
-          <Image src='2017Total.jpg' shape='rounded' />
+          <Image src='2017Total.jpg' shape='rounded' className='shadow-box'/>
+
 
           <br/>
 
@@ -50,7 +51,7 @@ export default class HomeContainer extends Component {
               </Grid.Column>
               <Grid.Column>
                 <Header as='h2' textAlign='center'>Relive DM 2017!</Header>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowfullscreen></iframe>
+                <iframe className='shadow-box' width="560" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowfullscreen></iframe>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -78,7 +79,7 @@ export default class HomeContainer extends Component {
 
           <UserForm handlePost={this.props.handlePost}  teams={this.props.teams}/>
 
-        
+
 
 
 

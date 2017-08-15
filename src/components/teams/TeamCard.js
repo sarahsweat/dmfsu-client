@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const TeamCard = (props) => {
 
   return (
-    <Card centered='true' key={props.index}>
+    <Card className="shadow-box-images" centered='true' key={props.index}>
     <Image src={props.team.photo} />
      <Card.Content >
        <Link to={`/teams/${props.team.id}`}>
