@@ -23,7 +23,7 @@ export default class UserEditForm extends Component {
   }
 
     componentWillMount() {
-      fetch(`http://localhost:3000/api/v1/users/${window.location.pathname.slice(7)}`)
+      fetch(process.env.REACT_APP_API + `/users/${window.location.pathname.slice(7)}`)
       .then(data => data.json())
       .then(user => this.setState({user}))
     }
@@ -41,7 +41,7 @@ export default class UserEditForm extends Component {
 
     handleSubmit = (event) => {
       event.preventDefault()
-      fetch(`http://localhost:3000/api/v1/users/${window.location.pathname.slice(7)}`, {
+      fetch(process.env.REACT_APP_API + `/users/${window.location.pathname.slice(7)}`, {
         method: 'PUT',
         body: JSON.stringify({id: window.location.pathname.slice(7), goal: 2000}),
         headers: {
