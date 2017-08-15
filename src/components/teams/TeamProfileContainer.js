@@ -14,7 +14,7 @@ export default class TeamProfileContainer extends React.Component {
   }
 
   componentWillMount() {
-    fetch(`http://localhost:3000/api/v1/teams/${window.location.pathname.slice(7)}`)
+    fetch(process.env.REACT_APP_API + `/teams/${window.location.pathname.slice(7)}`)
     .then(data => data.json())
     .then(team => this.setState({team}))
   }
