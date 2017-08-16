@@ -19,9 +19,9 @@ const UserCard = (props) => {
            { props.user.team? <b>Team: {props.user.team.name}<br/></b> : null}
            <b>Total Raised: ${props.user.individual_total.toLocaleString()}</b>
          </Card.Meta>
-         <Card.Description>
+         {/* <Card.Description>
           {props.user.bio.substring(0,52)}
-         </Card.Description>
+         </Card.Description> */}
        </Card.Content>
        {/* <Card.Content extra>
          <div centered='true'>

@@ -16,9 +16,9 @@ const TeamCard = (props) => {
       </Link>
        <Card.Meta><b>Total Raised: ${props.team.team_total.toLocaleString()}</b>
       </Card.Meta>
-       <Card.Description>
+       {/* <Card.Description>
         {props.team.bio.substring(0,52)}
-       </Card.Description>
+       </Card.Description> */}
      </Card.Content>
    </Card>
   )

@@ -8,6 +8,8 @@ import TeamProfileContainer from './components/teams/TeamProfileContainer'
 import TeamContainer from './components/teams/TeamContainer'
 import NavBar from './components/NavBar'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import DonationMap from './components/DonationMap'
+
 
 
 class App extends Component {
@@ -96,6 +98,7 @@ class App extends Component {
           <Route exact path='/teams' render={() => {return <TeamContainer handleSearch={this.handleTeamSearch} teams={this.state.currentTeams} handlePost={this.handlePost}/>}} />
           <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} />}} />
           <Route path='/teams/:id' render={() => {return <TeamProfileContainer />}} />
+          <Route path='/map' render={() => {return <DonationMap />}}/>
         </div>
       </Router>
 

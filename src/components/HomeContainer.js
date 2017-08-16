@@ -7,6 +7,7 @@ import DonationForm from './donations/DonationForm'
 import UserForm from './users/UserForm'
 import Stats from './stats/Stats'
 import MilestonesContainer from './milestones/MilestonesContainer'
+import DonationMap from './DonationMap'
 import { Container, Header, Image, Divider, Statistic, Grid } from 'semantic-ui-react'
 
 import '../index.css'
@@ -61,11 +62,13 @@ export default class HomeContainer extends Component {
 
           <Header as='h2' textAlign='center'>Top Fundraisers</Header>
           <UserList users={this.props.users.sort(function(a,b) {return (a.individual_total < b.individual_total) ? 1 : ((b.individual_total < a.individual_total) ? -1 : 0);} ).slice(0,5)} />
+          <br/>
 
           <Divider />
 
           <Header as='h2' textAlign='center'>Top Teams</Header>
           <TeamList teams={this.props.teams.sort(function(a,b) {return (a.team_total < b.team_total) ? 1 : ((b.team_total < a.team_total) ? -1 : 0);} ).slice(0,5)} />
+          <br/>
 
           <Divider />
 
@@ -98,6 +101,10 @@ export default class HomeContainer extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
+
+          <Divider />
+
+          <DonationMap />
 
           <Divider />
 
