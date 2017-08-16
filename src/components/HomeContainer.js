@@ -10,7 +10,10 @@ import MilestonesContainer from './milestones/MilestonesContainer'
 import DonationMap from './DonationMap'
 import { Container, Header, Image, Divider, Statistic, Grid } from 'semantic-ui-react'
 
+import {GGL_MAP_KEY} from '../keys'
+
 import '../index.css'
+
 
 export default class HomeContainer extends Component {
   constructor(props) {
@@ -30,7 +33,7 @@ export default class HomeContainer extends Component {
       let zipcodes = nextProps.users.map(user => user.zip)
       console.log("next props > old props", zipcodes)
       zipcodes.forEach((code) => {
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${code}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${code}&key=${GGL_MAP_KEY}`)
         .then(data => data.json())
         .then(data => this.setState({
           latLongs: [...this.state.latLongs, data.results[0].geometry.location]
@@ -42,7 +45,7 @@ export default class HomeContainer extends Component {
   componentWillMount() {
       let zipcodes = this.props.users.map(user => user.zip)
       zipcodes.forEach((code) => {
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${code}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${code}&key=${GGL_MAP_KEY}`)
         .then(data => data.json())
         .then(data => this.setState({
           latLongs: [...this.state.latLongs, data.results[0].geometry.location]
@@ -51,7 +54,9 @@ export default class HomeContainer extends Component {
     }
 
   render() {
-
+    // console.log(MAP_KEY)
+    console.log(process.env)
+    // console.log(process.env.REACT_APP_API)
     return (
       this.props.users && this.state.latLongs ?
 
