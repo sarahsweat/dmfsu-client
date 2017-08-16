@@ -66,7 +66,7 @@ export default class DonationForm extends Component {
       return(
         <Container>
           <br/><br/>
-
+        
           <Header as='h2' textAlign='center'>Make a Donation!</Header>
            <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
              <Form.Group widths='equal'>

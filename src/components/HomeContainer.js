@@ -15,11 +15,50 @@ import '../index.css'
 export default class HomeContainer extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      latLongs: []
+    }
+  }
+
+  componentWillMount() {
+    // let zipcodes = this.props.users.map(user => user.zip)
+    // console.log(zipcodes)
+    // debugger
+    // let coordinates = zipcodes.map(zip => {
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${32750}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
+      .then(data => data.json())
+      .then(data => this.setState({
+        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
+      }))
+
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${11215}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
+      .then(data => data.json())
+      .then(data => this.setState({
+        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
+      }))
+
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${60007}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
+      .then(data => data.json())
+      .then(data => this.setState({
+        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
+      }))
+
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${32304}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
+      .then(data => data.json())
+      .then(data => this.setState({
+        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
+      }))
+
+
+    // })
+
   }
 
   render() {
+
     return (
-      this.props.users ?
+      this.props.users && this.state.latLongs ?
       <div>
       <br/><br/>
         <Container textAlign='center' >
@@ -60,6 +99,11 @@ export default class HomeContainer extends Component {
 
           <Divider />
 
+          <Header as='h2' textAlign='center'>See where our donations are coming from!</Header>
+          <DonationMap latLongs={this.state.latLongs}/>
+
+          <Divider />
+
           <Header as='h2' textAlign='center'>Top Fundraisers</Header>
           <UserList users={this.props.users.sort(function(a,b) {return (a.individual_total < b.individual_total) ? 1 : ((b.individual_total < a.individual_total) ? -1 : 0);} ).slice(0,5)} />
           <br/>
@@ -83,10 +127,6 @@ export default class HomeContainer extends Component {
 
           <UserForm handlePost={this.props.handlePost}  teams={this.props.teams}/>
 
-
-
-
-
           <Divider />
 
           <Header as='h2' textAlign='center'>Our Beneficiaries</Header>
@@ -95,18 +135,16 @@ export default class HomeContainer extends Component {
               <Grid.Column>
                 <Image src='https://samaritanhealth.com/images/CMNHospitals.png' size='medium' centered='true'/>
               </Grid.Column>
-              <Grid.Column style={{marginTop: "25"}}>
+              <Grid.Column style={{marginTop: "3"}}>
 
-                <Image src='http://med.fsu.edu/userFiles/image/VERT_COM_Logo%20(1).png' size='large' />
+                <Image src='http://med.fsu.edu/userFiles/image/VERT_COM_Logo%20(1).png' size='huge' />
               </Grid.Column>
             </Grid.Row>
           </Grid>
 
           <Divider />
 
-          <DonationMap />
 
-          <Divider />
 
       </Container>
       </div>
