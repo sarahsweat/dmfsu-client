@@ -1,14 +1,18 @@
 import React from 'react'
-import { Feed } from 'semantic-ui-react'
+import { Feed, Card } from 'semantic-ui-react'
 import DonationCard from './DonationCard'
 
 
 const DonationList = (props) => {
 
   return (
-    <Feed centered='true' >
-      {props.donations.map( (donation, index) => <DonationCard donation={donation} index={index}/>)}
-    </Feed>
+    <Card fluid textAlign='center' centered='true' className='shadow-box' style={{background: 'rgba(245,245,245,0.7)'}}>
+      <Card.Content>
+        <Feed centered='true' >
+          {props.donations.map( (donation, index) => <DonationCard donation={donation} index={index}/>)}
+        </Feed>
+      </Card.Content>
+    </Card>
   )
 
 }

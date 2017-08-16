@@ -28,10 +28,13 @@ class App extends Component {
     }
   }
 
-  componentWillMount = () => {
+  componentDidMount = () => {
      fetch(process.env.REACT_APP_API + '/users')
      .then(data => data.json())
-     .then(users => this.setState({users, currentUsers: users}))
+     .then(users => {
+       console.log("App - ComponentDidMount:", users)
+       this.setState({users, currentUsers: users})
+     })
 
      fetch(process.env.REACT_APP_API + '/teams')
      .then(data => data.json())
@@ -85,7 +88,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log("App-Rendering", this.state.users)
     return (
 
       <Router>

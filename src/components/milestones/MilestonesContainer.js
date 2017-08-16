@@ -1,5 +1,5 @@
 import React from 'react'
-import { Statistic, Image, Progress, Container, Header, Divider, Grid } from 'semantic-ui-react'
+import { Statistic, Image, Progress, Container, Header, Divider, Grid, Card } from 'semantic-ui-react'
 import Bar from 'react-chartjs-2';
 
 export default class MilestonesContainer extends React.Component {
@@ -23,19 +23,21 @@ export default class MilestonesContainer extends React.Component {
       <Grid divided='vertically'>
         <Grid.Row columns={2}>
           <Grid.Column>
-            <Image src='./Milestones.png'/>
+            <Image className='shadow-box' shape='rounded' src='./Milestones.png'/>
           </Grid.Column>
           <Grid.Column>
-            <Bar  type='bar'
-                  data={
+            {/* <Card >
+              <Card.Content> */}
+                <Bar  type='bar'
+                    data={
                       { labels: ["$300", "$500", "$750", "$1000", "$1500", "$2000", "$2300"],
                         datasets: [{
                           label: "# of Dancers",
                           data: this.props.data,
                           backgroundColor: '#782f40',
                           hoverBackgroundColor: '#000000'}]
-                  }}
-            options={{maintainAspectRatio: false,
+                      }}
+                options={{maintainAspectRatio: false,
                           title:{
                               display: true,
                               text: "Money Raised",
@@ -51,6 +53,8 @@ export default class MilestonesContainer extends React.Component {
                             }]
                         }
                       }}  />
+                    {/* </Card.Content>
+                  </Card> */}
           </Grid.Column>
         </Grid.Row>
       </Grid>

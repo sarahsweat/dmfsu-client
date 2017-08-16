@@ -39,7 +39,7 @@ export default class UserProfileContainer extends React.Component {
           <Grid.Row columns={2}>
             <Grid.Column >
               <Image src={this.state.user.photo} centered='true' size='huge' shape='rounded' className='shadow-box'/>
-              {this.state.user.individual_total > 1000 ? <Header as='h1' textAlign='center'>COMMA CLUB MEMBER!!</Header> : null }
+              {this.state.user.individual_total > 1000 ? <Header as='h1' textAlign='center'>COMMA CLUB MEMBER!!</Header> : <br/> }
               <UserEditForm handlePost={this.props.handlePost} handlePut={this.handlePut} teams={this.props.teams}/>
 
             </Grid.Column>

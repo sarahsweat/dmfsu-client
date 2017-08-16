@@ -21,38 +21,22 @@ export default class HomeContainer extends Component {
     }
   }
 
-  componentWillMount() {
-    // let zipcodes = this.props.users.map(user => user.zip)
-    // console.log(zipcodes)
-    // debugger
-    // let coordinates = zipcodes.map(zip => {
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${32750}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
-      .then(data => data.json())
-      .then(data => this.setState({
-        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
-      }))
+  componentWillReceiveProps(nextProps) {
+    console.log("Old  Props", this.props)
+    console.log("New Props", nextProps)
 
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${11215}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
-      .then(data => data.json())
-      .then(data => this.setState({
-        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
-      }))
+    if (nextProps.users.length > this.props.users.length) {
 
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${60007}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
-      .then(data => data.json())
-      .then(data => this.setState({
-        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
-      }))
-
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${32304}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
-      .then(data => data.json())
-      .then(data => this.setState({
-        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
-      }))
-
-
-    // })
-
+      let zipcodes = nextProps.users.map(user => user.zip)
+      console.log("next props > old props", zipcodes)
+      zipcodes.forEach((code) => {
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${code}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
+        .then(data => data.json())
+        .then(data => this.setState({
+          latLongs: [...this.state.latLongs, data.results[0].geometry.location]
+        }))
+      })
+    }
   }
 
   render() {
@@ -61,12 +45,12 @@ export default class HomeContainer extends Component {
       this.props.users && this.state.latLongs ?
       <div>
       <br/><br/>
-        <Container textAlign='center' >
+        <Container  textAlign='center' >
           <br/>
           <Statistic.Group widths='one'>
             <Statistic size='large' value='Dance Marathon'/>
-            <Statistic value='Florida State University' />
-            <Statistic size='large' value='2018' />
+            <Statistic value='Florida State University'/>
+            <Statistic size='large' value='2018'/>
           </Statistic.Group>
 
           <br/>
@@ -92,7 +76,7 @@ export default class HomeContainer extends Component {
               </Grid.Column>
               <Grid.Column>
                 <Header as='h2' textAlign='center'>Relive DM 2017!</Header>
-                <iframe className='shadow-box' width="560" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowfullscreen></iframe>
+                <iframe style={{marginTop: "12"}} className='shadow-box' width="560" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowfullscreen></iframe>
               </Grid.Column>
             </Grid.Row>
           </Grid>

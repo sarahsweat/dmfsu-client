@@ -6,37 +6,21 @@ const Balloon = () => <img width="25" src='http://speedwaymiracletournament.com/
 
 export default class DonationMap extends Component {
   constructor(props){
-    super(props)
+    super()
   }
 
 
   render() {
     return (
-      <Container style={{width: '100%', height: '400px'}}>
+      <Container style={{width: '100%', height: '450px'}}>
       <GoogleMapReact
-        center={{lat: 37, lng: -91}}
+        center={{lat: 36.7, lng: -91}}
         defaultZoom={4}
       >
         {this.props.latLongs.map(place => (
           <Balloon lat={place.lat} lng={place.lng} />
         ))}
 
-        {/* <PlaceMapPoint
-          lat={this.props.currentUserLat}
-          lng={this.props.currentUserLong}
-          text='your set location'
-          linkTo={`/places/search`}
-          icon='target'
-        />
-
-
-        {this.props.allPlaces.map(place => (<PlaceMapPoint
-          lat={place.lat}
-          lng={place.long}
-          text={place.name}
-          linkTo={`/places/${place.id}`}
-          icon='circle'
-        />))} */}
 
       </GoogleMapReact>
     </Container>
