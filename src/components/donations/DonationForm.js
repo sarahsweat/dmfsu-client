@@ -65,9 +65,7 @@ export default class DonationForm extends Component {
     })
       return(
         <Container>
-          <br/><br/>
         
-          <Header as='h2' textAlign='center'>Make a Donation!</Header>
            <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
              <Form.Group widths='equal'>
                <Form.Dropdown label="Donor" placeholder='Donor' name='donor_id' value={this.state.donor_id} fluid selection options={userOptions} onChange={this.handleDonorDropdown} />

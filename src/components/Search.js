@@ -10,9 +10,8 @@ class Search extends React.Component {
   render() {
     return (
       <Form>
-        <Form.Group>
-          <Form.Input icon='search' placeholder='Search...' onChange={this.props.handleSearch} type="text" />
-        </Form.Group>
+          <Form.Input  icon='search' placeholder='Search...' onChange={this.props.handleSearch} type="text" />
+        <br/>
       </Form>
     )
   }

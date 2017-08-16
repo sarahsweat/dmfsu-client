@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 10;
-  font-family: sans-serif;
+  font-family: 'Muli' !important;
   background: #e2cc9c!important;
 }
 
@@ -20,4 +20,22 @@ body {
 
 .bg {
     background: #e2cc9c!important;
+}
+
+h1 , h2 , h3, h4 {
+  font-family: 'Muli' !important;
+}
+
+h2 {
+  font-size: 250% !important
+}
+
+.main-title {
+  font-family: 'Chewy' !important;
+  font-size: 600% !important
+}
+
+.nav-font {
+  font-family: 'Muli' !important;
+  font-size: 150%
 }

@@ -31,7 +31,7 @@ export default class TeamProfileContainer extends React.Component {
                 <Image src={this.state.team.photo} size='massive' centered='true' className='shadow-box'/>
               </Grid.Column>
               <Grid.Column>
-                <Header as='h1' textAlign='center'>{this.state.team.name}</Header>
+                <Header className='main-title' as='h1' textAlign='center'>{this.state.team.name}</Header>
                 <Header as='h3' textAlign='center'>Total Raised: ${this.state.team.team_total.toLocaleString()}</Header>
                 <Header as='h4' textAlign='center'>{this.state.team.bio}</Header>
                 <Header as='h3' textAlign='center'>{this.state.team.name} has a goal of ${this.state.team.goal.toLocaleString()}  and has raised: ${this.state.team.team_total.toLocaleString()} so far!</Header>

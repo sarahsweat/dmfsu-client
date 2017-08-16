@@ -65,8 +65,8 @@ export default class UserForm extends Component {
     })
       return(
       <Container>
-        <br/><br/>
-        <Header as='h2' textAlign='center'>Signup to be a fundraiser!</Header>
+
+        
         <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
            <Form.Group widths='equal'>
              <Form.Input label='First Name' name='first_name' value={this.state.first_name} onChange={this.handleChange} />

@@ -39,20 +39,38 @@ export default class HomeContainer extends Component {
     }
   }
 
+  componentWillMount() {
+      let zipcodes = this.props.users.map(user => user.zip)
+      zipcodes.forEach((code) => {
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${code}&key=AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw`)
+        .then(data => data.json())
+        .then(data => this.setState({
+          latLongs: [...this.state.latLongs, data.results[0].geometry.location]
+        }))
+      })
+    }
+
   render() {
 
     return (
       this.props.users && this.state.latLongs ?
-      <div>
-      <br/><br/>
+
+
         <Container  textAlign='center' >
           <br/>
-          <Statistic.Group widths='one'>
+          <br/><br/>
+          <br/><br/>
+          <Header className='main-title' as='h2' textAlign='center'>Dance Marathon</Header>
+          <Header className='main-title' as='h2' textAlign='center'>Florida State University</Header>
+          <Header className='main-title' as='h2' textAlign='center'>2018</Header>
+
+          {/* <Statistic.Group widths='one'>
             <Statistic size='large' value='Dance Marathon'/>
             <Statistic value='Florida State University'/>
             <Statistic size='large' value='2018'/>
-          </Statistic.Group>
+          </Statistic.Group> */}
 
+          <br/>
           <br/>
 
           <Image src='2017Total.jpg' shape='rounded' className='shadow-box'/>
@@ -105,10 +123,12 @@ export default class HomeContainer extends Component {
 
           <Divider />
 
+          <Header as='h1' textAlign='center'>Make a Donation!</Header>
           <DonationForm handlePost={this.props.handlePost} users={this.props.users}/>
 
           <Divider />
 
+          <Header as='h2' textAlign='center'>Signup to be a Fundraiser!</Header>
           <UserForm handlePost={this.props.handlePost}  teams={this.props.teams}/>
 
           <Divider />
@@ -131,7 +151,7 @@ export default class HomeContainer extends Component {
 
 
       </Container>
-      </div>
+
       : null
 
     )

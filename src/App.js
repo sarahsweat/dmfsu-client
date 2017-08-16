@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import HomeContainer from './components/HomeContainer'
-import DonationForm from './components/donations/DonationForm'
+import DonateContainer from './components/donations/DonateContainer'
 import UserForm from './components/users/UserForm'
 import UserContainer from './components/users/UserContainer'
+import SignupContainer from './components/users/SignupContainer'
 import UserProfileContainer from './components/users/UserProfileContainer'
 import TeamProfileContainer from './components/teams/TeamProfileContainer'
 import TeamContainer from './components/teams/TeamContainer'
@@ -32,7 +33,6 @@ class App extends Component {
      fetch(process.env.REACT_APP_API + '/users')
      .then(data => data.json())
      .then(users => {
-       console.log("App - ComponentDidMount:", users)
        this.setState({users, currentUsers: users})
      })
 
@@ -88,15 +88,14 @@ class App extends Component {
   }
 
   render() {
-    console.log("App-Rendering", this.state.users)
     return (
 
       <Router>
         <div>
           <Route path='/' render={() => {return <NavBar/>}} />
           <Route exact path='/' render={() => {return <HomeContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} data={this.state.data} />}}/>
-          <Route path='/donate' render={() => {return <DonationForm handlePost={this.handlePost} users={this.state.users}/>}} />
-          <Route path='/signup' render={() => {return <UserForm teams={this.state.teams} handlePost={this.handlePost}/>}} />
+          <Route path='/donate' render={() => {return <DonateContainer handlePost={this.handlePost} users={this.state.users}/>}} />
+          <Route path='/signup' render={() => {return <SignupContainer teams={this.state.teams} handlePost={this.handlePost}/>}} />
           <Route exact path='/users' render={() => {return <UserContainer handleSearch={this.handleUserSearch} users={this.state.currentUsers}/>}} />
           <Route exact path='/teams' render={() => {return <TeamContainer handleSearch={this.handleTeamSearch} teams={this.state.currentTeams} handlePost={this.handlePost}/>}} />
           <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} />}} />

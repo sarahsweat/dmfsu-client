@@ -44,7 +44,7 @@ export default class UserProfileContainer extends React.Component {
 
             </Grid.Column>
             <Grid.Column>
-              <Header as='h1' textAlign='center'>{this.state.user.first_name} {this.state.user.last_name}</Header>
+              <Header className='main-title' as='h1' textAlign='center'>{this.state.user.first_name} {this.state.user.last_name}</Header>
               <Header as='h3' textAlign='center'>Team: <Link to={`/teams/${this.state.user.team.id}`}> {this.state.user.team.name}</Link></Header>
               <Header as='h4' textAlign='center'>{this.state.user.bio}</Header>
               <Header as='h3' textAlign='center'>{this.state.user.first_name} has a goal of ${this.state.user.goal.toLocaleString()}  and has raised: ${this.state.user.individual_total.toLocaleString()} so far!</Header>
