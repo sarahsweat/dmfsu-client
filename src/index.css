@@ -17,3 +17,7 @@ body {
 .shadow-box {
   box-shadow: 3px 3px 10px rgba(10, 10, 10, .5)!important;
 }
+
+.bg {
+    background: #e2cc9c!important;
+}

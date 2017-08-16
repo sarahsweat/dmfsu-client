@@ -17,7 +17,7 @@ export default class NavBar extends Component {
 
     return (
 
-        <Menu pointing secondary>
+        <Menu fixed='top' color='black' inverted pointing >
           <Link to='/'><Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>Home</Menu.Item></Link>
           <Link to='/donate'><Menu.Item name='donate' active={activeItem === 'donate'} onClick={this.handleItemClick}>Donate</Menu.Item></Link>
           <Link to='/signup'><Menu.Item name='signup' active={activeItem === 'signup'} onClick={this.handleItemClick}>Signup</Menu.Item></Link>

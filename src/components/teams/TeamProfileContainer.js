@@ -23,6 +23,8 @@ export default class TeamProfileContainer extends React.Component {
     return (
       this.state.team.dancers ?
         <Container  centered='true' textAlign='center'>
+          <br/><br/>
+          <br/><br/>
           <Grid divided='vertically'>
             <Grid.Row columns={2}>
               <Grid.Column>

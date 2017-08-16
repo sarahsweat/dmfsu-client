@@ -69,7 +69,8 @@ export default class UserEditForm extends Component {
         <Container centered='true' textAlign='center'>
           <Modal trigger={<Button onClick={this.handleOpen}>Edit this fundraiser!</Button>}
           open={this.state.modalOpen}
-          onClose={this.handleClose}>
+          onClose={this.handleClose}
+          >
           <Modal.Header as='h2' textAlign='center'>Edit this fundraiser!</Modal.Header>
           <Modal.Content >
            <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
@@ -85,7 +86,7 @@ export default class UserEditForm extends Component {
              <Form.Input label='Photo Link' name='photo' value={this.state.user.photo} onChange={this.handleChange} />
             </Form.Group>
              <Form.Input label='Bio' name='bio' value={this.state.user.bio} onChange={this.handleChange} />
-             <Button type='submit'>Save Changes</Button>
+             <Button type='submit'>Click Here to Save Changes</Button>
            </Form>
          </Modal.Content>
          <Modal.Actions>

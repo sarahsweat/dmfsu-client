@@ -8,6 +8,7 @@ import Search from '../Search'
 const TeamContainer = (props) => {
   return (
     <Container textAlign='center'>
+      <br/><br/>
       <Header as='h1' textAlign='center'>Teams</Header>
       <Search handleSearch={props.handleSearch}/>
       <br/>

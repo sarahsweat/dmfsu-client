@@ -21,7 +21,8 @@ export default class HomeContainer extends Component {
       this.props.users ?
       <div>
       <br/><br/>
-        <Container textAlign='center'>
+        <Container textAlign='center' >
+          <br/>
           <Statistic.Group widths='one'>
             <Statistic size='large' value='Dance Marathon'/>
             <Statistic value='Florida State University' />

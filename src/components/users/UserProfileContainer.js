@@ -34,9 +34,10 @@ export default class UserProfileContainer extends React.Component {
     return (
       this.state.user.donations_received ?
       <Container>
+        <br/><br/><br/><br/>
         <Grid divided='vertically'>
           <Grid.Row columns={2}>
-            <Grid.Column>
+            <Grid.Column >
               <Image src={this.state.user.photo} centered='true' size='huge' shape='rounded' className='shadow-box'/>
               {this.state.user.individual_total > 1000 ? <Header as='h1' textAlign='center'>COMMA CLUB MEMBER!!</Header> : null }
               <UserEditForm handlePost={this.props.handlePost} handlePut={this.handlePut} teams={this.props.teams}/>
