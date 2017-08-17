@@ -88,10 +88,14 @@ class App extends Component {
   }
 
   render() {
+    console.log(process.env)
     return (
 
       <Router>
+
         <div className='paralax' >
+          <p>{ process.env.REACT_APP_API }</p>
+
           <div className='home-bg'>
           <Route path='/' render={() => {return <NavBar/>}} />
           <Route exact path='/' render={() => {return <HomeContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} data={this.state.data} />}}/>
