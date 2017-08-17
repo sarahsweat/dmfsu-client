@@ -91,7 +91,8 @@ class App extends Component {
     return (
 
       <Router>
-        <div>
+        <div className='paralax' >
+          <div className='home-bg'>
           <Route path='/' render={() => {return <NavBar/>}} />
           <Route exact path='/' render={() => {return <HomeContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} data={this.state.data} />}}/>
           <Route path='/donate' render={() => {return <DonateContainer handlePost={this.handlePost} users={this.state.users}/>}} />
@@ -102,6 +103,7 @@ class App extends Component {
           <Route path='/teams/:id' render={() => {return <TeamProfileContainer />}} />
           <Route path='/map' render={() => {return <DonationMap />}}/>
         </div>
+      </div>
       </Router>
 
     );

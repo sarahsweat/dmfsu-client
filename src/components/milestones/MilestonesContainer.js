@@ -19,13 +19,13 @@ export default class MilestonesContainer extends React.Component {
 
   render() {
   return (
-    <Container>
+    <Container >
       <Grid divided='vertically'>
         <Grid.Row columns={2}>
           <Grid.Column>
             <Image className='shadow-box' shape='rounded' src='./Milestones.png'/>
           </Grid.Column>
-          <Grid.Column>
+          <Grid.Column className='milestone-bg shadow-box'>
             {/* <Card >
               <Card.Content> */}
                 <Bar  type='bar'

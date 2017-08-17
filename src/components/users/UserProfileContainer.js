@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Container, Image, Progress, Grid, Divider, Statistic } from 'semantic-ui-react'
+import { Header, Container, Image, Progress, Grid, Divider, Statistic, Card } from 'semantic-ui-react'
 import UserList from '../users/UserList'
 import { Link } from 'react-router-dom'
 import UserEditForm from './UserEditForm'
@@ -35,11 +35,13 @@ export default class UserProfileContainer extends React.Component {
       this.state.user.donations_received ?
       <Container>
         <br/><br/><br/><br/>
+        <Card fluid className='bg shadow-box'>
+          <Card.Content>
         <Grid divided='vertically'>
           <Grid.Row columns={2}>
             <Grid.Column >
               <Image src={this.state.user.photo} centered='true' size='huge' shape='rounded' className='shadow-box'/>
-              {this.state.user.individual_total > 1000 ? <Header as='h1' textAlign='center'>COMMA CLUB MEMBER!!</Header> : <br/> }
+              {this.state.user.individual_total > 1000 ? <Header as='h1' textAlign='center'>COMMA CLUB MEMBER!!</Header> : <div><br/><br/></div> }
               <UserEditForm handlePost={this.props.handlePost} handlePut={this.handlePut} teams={this.props.teams}/>
 
             </Grid.Column>
@@ -72,8 +74,12 @@ export default class UserProfileContainer extends React.Component {
         </Grid>
         <Image src='../photos/comma.png' />
 
-        <Divider />
+        </Card.Content>
+      </Card>
 
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
       </Container>
       : null
