@@ -9,10 +9,10 @@ import Stats from './stats/Stats'
 import MilestonesContainer from './milestones/MilestonesContainer'
 import DonationMap from './DonationMap'
 import { Container, Header, Image, Divider, Statistic, Grid, Card } from 'semantic-ui-react'
-
-import {GGL_MAP_KEY} from '../keys'
-
 import '../index.css'
+
+const GGL_MAP_KEY = 'AIzaSyDwvMDZA0JJr6QbhLJukzFHh3FKFisQDnw'
+
 
 
 export default class HomeContainer extends Component {
@@ -60,11 +60,8 @@ export default class HomeContainer extends Component {
     return (
       this.props.users && this.state.latLongs ?
 
-
         <Container textAlign='center' >
-          <br/>
-          <br/><br/>
-          <br/><br/>
+          <br/><br/><br/><br/><br/>
           <Card fluid className='bg shadow-box'>
             <Card.Content>
               <Header className='main-title' as='h2' textAlign='center'>Dance Marathon</Header>
@@ -72,25 +69,16 @@ export default class HomeContainer extends Component {
               {/* <Header className='main-title' as='h2' textAlign='center'>2018</Header> */}
             </Card.Content>
           </Card>
-          {/* <Statistic.Group widths='one'>
-            <Statistic size='large' value='Dance Marathon'/>
-            <Statistic value='Florida State University'/>
-            <Statistic size='large' value='2018'/>
-          </Statistic.Group> */}
 
-          <br/>
           <br/>
 
           <Image src='2017Total.jpg' shape='rounded' className='shadow-box'/>
 
-
           <br/>
-
-          <Divider />
 
           <Stats teams={this.props.teams} users={this.props.users} donations={this.props.donations}/>
 
-          <Divider />
+          <br/>
 
           <Grid divided='vertically'>
             <Grid.Row columns={2}>
@@ -113,7 +101,7 @@ export default class HomeContainer extends Component {
             </Grid.Row>
           </Grid>
 
-          <Divider />
+          <br/>
 
           <Card fluid className='bg shadow-box'>
             <Card.Content>
@@ -122,7 +110,7 @@ export default class HomeContainer extends Component {
             </Card.Content>
           </Card>
 
-          <Divider />
+          <br/>
 
           <Card fluid className='bg shadow-box'>
             <Card.Content>
@@ -132,7 +120,7 @@ export default class HomeContainer extends Component {
             </Card.Content>
           </Card>
 
-          <Divider />
+          <br/>
 
           <Card fluid className='bg shadow-box'>
             <Card.Content>
@@ -142,7 +130,7 @@ export default class HomeContainer extends Component {
             </Card.Content>
           </Card>
 
-          <Divider />
+          <br/>
 
           <Card fluid className='bg shadow-box'>
             <Card.Content>
@@ -151,7 +139,7 @@ export default class HomeContainer extends Component {
             </Card.Content>
           </Card>
 
-          <Divider />
+          <br/>
 
           <Card fluid className='bg shadow-box'>
             <Card.Content>
@@ -160,7 +148,7 @@ export default class HomeContainer extends Component {
             </Card.Content>
           </Card>
 
-          <Divider />
+          <br/>
 
           <Card fluid className='bg shadow-box'>
             <Card.Content>
@@ -169,7 +157,7 @@ export default class HomeContainer extends Component {
             </Card.Content>
           </Card>
 
-          <Divider />
+          <br/>
 
           <Card fluid className='bg shadow-box'>
             <Card.Content>
@@ -180,7 +168,6 @@ export default class HomeContainer extends Component {
                     <Image src='https://samaritanhealth.com/images/CMNHospitals.png' size='medium' centered='true'/>
                   </Grid.Column>
                   <Grid.Column style={{marginTop: "17"}}>
-
                     <Image src='http://med.fsu.edu/userFiles/image/VERT_COM_Logo%20(1).png' size='huge' />
                   </Grid.Column>
                 </Grid.Row>
@@ -188,9 +175,7 @@ export default class HomeContainer extends Component {
             </Card.Content>
           </Card>
 
-          <Divider />
-
-
+          <br/>
 
       </Container>
 
