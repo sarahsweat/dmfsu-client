@@ -58,7 +58,7 @@ export default class HomeContainer extends Component {
       this.props.users && this.state.latLongs ?
 
         <Container textAlign='center' >
-          <br/><br/><br/><br/><br/>
+          <br/><br/><br/><br/>
           <Card fluid className='bg shadow-box'>
             <Card.Content>
               <Header className='main-title' as='h2' textAlign='center'>Dance Marathon</Header>

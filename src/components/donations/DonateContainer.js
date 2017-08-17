@@ -11,11 +11,9 @@ const DonateContainer = (props) => {
         <Header className='main-title' as='h1' textAlign='center'>Donate!</Header>
         <br/>
         <DonationForm users={props.users} handlePost={props.handlePost}/>
-
       </Card.Content></Card>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </Container>
   )
 

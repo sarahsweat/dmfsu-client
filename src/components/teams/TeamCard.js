@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
@@ -7,18 +7,14 @@ const TeamCard = (props) => {
 
   return (
     <Card className="shadow-box-images" centered='true' key={props.index}>
-    <Image src={props.team.photo} />
-     <Card.Content >
+     <Card.Content ><Image src={props.team.photo} /></Card.Content>
+     <Card.Content extra>
        <Link to={`/teams/${props.team.id}`}>
-         <Card.Header >
-            {props.team.name}
-         </Card.Header>
-      </Link>
-       <Card.Meta><b>Total Raised: ${props.team.team_total.toLocaleString()}</b>
-      </Card.Meta>
-       {/* <Card.Description>
-        {props.team.bio.substring(0,52)}
-       </Card.Description> */}
+         <Header as='h4'>
+           {props.team.name}
+         </Header>
+       </Link>
+       <b>Total Raised: ${props.team.team_total.toLocaleString()}</b>
      </Card.Content>
    </Card>
   )
