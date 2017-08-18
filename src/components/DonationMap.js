@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Image } from 'semantic-ui-react'
 import GoogleMapReact from 'google-map-react';
 
-const Balloon = () => <img width="25" src='https://speedwaymiracletournament.com/Images/cmnh-logo-no-text.png'/>;
+const Balloon = () => <img width="25" src='http://speedwaymiracletournament.com/Images/cmnh-logo-no-text.png'/>;
 
 export default class DonationMap extends Component {
   constructor(props){
