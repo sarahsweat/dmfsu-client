@@ -1,13 +1,12 @@
 import React from 'react'
-import { Card, Image, Button, Header } from 'semantic-ui-react'
+import { Card, Image, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-
 
 const UserCard = (props) => {
 
   return (
       props.user.individual_total >= 0 ?
-      <Card className="shadow-box-images" centered='true' key={props.index} >
+      <Card className="shadow-box-images" key={props.index} >
        <Card.Content><Image src={props.user.photo} className='card-image' /></Card.Content>
        <Card.Content extra>
          <Link to={`/users/${props.user.id}`}>

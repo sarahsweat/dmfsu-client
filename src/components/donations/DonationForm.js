@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Form, Button, Label, Input } from 'semantic-ui-react'
-
-
+import { Container, Form, Button, Label, Input } from 'semantic-ui-react'
 
 export default class DonationForm extends Component {
   constructor(props){
@@ -16,23 +14,23 @@ export default class DonationForm extends Component {
     }
   }
 
-    handleChange = (event) => {
-      let key = `${event.target.name}`
-      let value = `${event.target.value}`
-      this.setState({
-        [key]: value
-      })
-    }
+  handleChange = (event) => {
+    let key = `${event.target.name}`
+    let value = `${event.target.value}`
+    this.setState({
+      [key]: value
+    })
+  }
 
-    handleDonorDropdown = (e,data) => {
-      this.setState({ donor_id: data.value })
-    }
+  handleDonorDropdown = (e,data) => {
+    this.setState({ donor_id: data.value })
+  }
 
-    handleDancerDropdown = (e,data) => {
-      this.setState({ dancer_id: data.value })
-    }
+  handleDancerDropdown = (e,data) => {
+    this.setState({ dancer_id: data.value })
+  }
 
-    handleSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault()
     fetch(process.env.REACT_APP_API + '/donations', {
       method: 'POST',
@@ -65,7 +63,6 @@ export default class DonationForm extends Component {
     })
       return(
         <Container>
-        
            <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
              <Form.Group widths='equal'>
                <Form.Dropdown label="Donor" placeholder='Donor' name='donor_id' value={this.state.donor_id} fluid selection options={userOptions} onChange={this.handleDonorDropdown} />

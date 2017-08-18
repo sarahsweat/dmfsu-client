@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import UserList from './users/UserList'
 import TeamList from './teams/TeamList'
-import TeamForm from './teams/TeamForm'
 import DonationList from './donations/DonationList'
 import DonationForm from './donations/DonationForm'
 import UserForm from './users/UserForm'
 import Stats from './stats/Stats'
 import MilestonesContainer from './milestones/MilestonesContainer'
 import DonationMap from './DonationMap'
-import { Container, Header, Image, Divider, Statistic, Grid, Card } from 'semantic-ui-react'
+import { Container, Header, Image, Grid, Card } from 'semantic-ui-react'
 import '../index.css'
-
 
 export default class HomeContainer extends Component {
   constructor(props) {
@@ -22,13 +20,8 @@ export default class HomeContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("Old  Props", this.props)
-    console.log("New Props", nextProps)
-
     if (nextProps.users.length > this.props.users.length) {
-
       let zipcodes = nextProps.users.map(user => user.zip)
-      console.log("next props > old props", zipcodes)
       zipcodes.forEach((code) => {
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${code}&key=${process.env.REACT_APP_GGL_MAP_KEY}`)
         .then(data => data.json())
@@ -51,12 +44,9 @@ export default class HomeContainer extends Component {
     }
 
   render() {
-    // console.log(MAP_KEY)
-    console.log(process.env)
-    // console.log(process.env.REACT_APP_API)
+
     return (
       this.props.users && this.state.latLongs ?
-
         <Container textAlign='center' >
           <br/><br/><br/><br/>
           <Card fluid className='bg shadow-box'>
@@ -91,7 +81,7 @@ export default class HomeContainer extends Component {
                 <Card fluid className='bg shadow-box'>
                   <Card.Content>
                     <Header as='h1' className='sub-title' textAlign='center'>Relive DM 2017!</Header>
-                    <iframe style={{marginTop: "12"}} className='shadow-box' width="520" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowfullscreen></iframe>
+                    <iframe style={{marginTop: "12"}} className='shadow-box' width="520" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowFullScreen></iframe>
                   </Card.Content>
                 </Card>
               </Grid.Column>
@@ -162,7 +152,7 @@ export default class HomeContainer extends Component {
               <Grid divided='vertically'>
                 <Grid.Row columns={2}>
                   <Grid.Column>
-                    <Image src='https://samaritanhealth.com/images/CMNHospitals.png' size='medium' centered='true'/>
+                    <Image src='https://samaritanhealth.com/images/CMNHospitals.png' size='medium' />
                   </Grid.Column>
                   <Grid.Column style={{marginTop: "17"}}>
                     <Image src='http://med.fsu.edu/userFiles/image/VERT_COM_Logo%20(1).png' size='huge' />
@@ -177,7 +167,6 @@ export default class HomeContainer extends Component {
       </Container>
 
       : null
-
     )
   }
 }

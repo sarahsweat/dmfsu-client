@@ -3,7 +3,7 @@ import { Header, Container, Form, Button, Label, Input } from 'semantic-ui-react
 
 
 
-export default class DonationForm extends Component {
+export default class DonationModal extends Component {
   constructor(props){
     super(props)
 

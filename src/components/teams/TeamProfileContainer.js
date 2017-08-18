@@ -2,8 +2,6 @@ import React from 'react'
 import { Header, Container, Image, Grid, Progress, Card } from 'semantic-ui-react'
 import UserList from '../users/UserList'
 
-
-
 export default class TeamProfileContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -25,7 +23,6 @@ export default class TeamProfileContainer extends React.Component {
         <Container  centered='true' textAlign='center'>
           <br/><br/>
           <br/><br/>
-        
           <Card fluid className='bg shadow-box'>
             <Card.Content>
               <Grid divided='vertically'>
@@ -44,12 +41,10 @@ export default class TeamProfileContainer extends React.Component {
               </Grid>
               <Header as='h2' textAlign='center'>{this.state.team.name}'s dancers</Header>
               <UserList users={this.state.team.dancers} />
-
             </Card.Content>
           </Card>
           <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
         </Container>
       : null
 

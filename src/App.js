@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import HomeContainer from './components/HomeContainer'
 import DonateContainer from './components/donations/DonateContainer'
-import UserForm from './components/users/UserForm'
 import UserContainer from './components/users/UserContainer'
 import SignupContainer from './components/users/SignupContainer'
 import UserProfileContainer from './components/users/UserProfileContainer'
@@ -10,8 +9,6 @@ import TeamContainer from './components/teams/TeamContainer'
 import NavBar from './components/NavBar'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import DonationMap from './components/DonationMap'
-
-
 
 class App extends Component {
   constructor() {
@@ -88,28 +85,22 @@ class App extends Component {
   }
 
   render() {
-    console.log(process.env)
     return (
-
       <Router>
-
         <div className='paralax' >
-          <p>{ process.env.REACT_APP_API }</p>
-
           <div className='home-bg'>
-          <Route path='/' render={() => {return <NavBar/>}} />
-          <Route exact path='/' render={() => {return <HomeContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} data={this.state.data} />}}/>
-          <Route path='/donate' render={() => {return <DonateContainer handlePost={this.handlePost} users={this.state.users}/>}} />
-          <Route path='/signup' render={() => {return <SignupContainer teams={this.state.teams} handlePost={this.handlePost}/>}} />
-          <Route exact path='/users' render={() => {return <UserContainer handleSearch={this.handleUserSearch} users={this.state.currentUsers}/>}} />
-          <Route exact path='/teams' render={() => {return <TeamContainer handleSearch={this.handleTeamSearch} teams={this.state.currentTeams} handlePost={this.handlePost}/>}} />
-          <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} />}} />
-          <Route path='/teams/:id' render={() => {return <TeamProfileContainer />}} />
-          <Route path='/map' render={() => {return <DonationMap />}}/>
+            <Route path='/' render={() => {return <NavBar/>}} />
+            <Route exact path='/' render={() => {return <HomeContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} data={this.state.data} />}}/>
+            <Route path='/donate' render={() => {return <DonateContainer handlePost={this.handlePost} users={this.state.users}/>}} />
+            <Route path='/signup' render={() => {return <SignupContainer teams={this.state.teams} handlePost={this.handlePost}/>}} />
+            <Route exact path='/users' render={() => {return <UserContainer handleSearch={this.handleUserSearch} users={this.state.currentUsers}/>}} />
+            <Route exact path='/teams' render={() => {return <TeamContainer handleSearch={this.handleTeamSearch} teams={this.state.currentTeams} handlePost={this.handlePost}/>}} />
+            <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} />}} />
+            <Route path='/teams/:id' render={() => {return <TeamProfileContainer />}} />
+            <Route path='/map' render={() => {return <DonationMap />}}/>
+          </div>
         </div>
-      </div>
       </Router>
-
     );
   }
 }

@@ -6,12 +6,11 @@ import UserCard from './UserCard'
 const UserList = (props) => {
   return (
     <Container>
-      <Card.Group centered='true' textAlign='center' itemsPerRow={5}>
-        {props.users.map( (user, index) => <UserCard user={user} index={index}/>)}
+      <Card.Group itemsPerRow={5}>
+        {props.users.map( (user, index) => <UserCard user={user} key={index}/>)}
       </Card.Group>
     </Container>
   )
-
 }
 
 export default UserList

@@ -2,11 +2,10 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 
 class Search extends React.Component {
-
   constructor(props) {
-    super(props)
+    super()
   }
-
+  
   render() {
     return (
       <Form>

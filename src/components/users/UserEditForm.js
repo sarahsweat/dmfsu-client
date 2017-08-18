@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Form, Button, Label, Input, Modal, Icon } from 'semantic-ui-react'
+import { Container, Form, Button, Label, Input, Modal, Icon } from 'semantic-ui-react'
 
 export default class UserEditForm extends Component {
   constructor(props){
@@ -77,7 +77,7 @@ export default class UserEditForm extends Component {
             <Form.Group widths='equal'>
              <Form.Input label='First Name' name='first_name' value={this.state.user.first_name} onChange={this.handleChange} />
              <Form.Input label='Last name' name='last_name' value={this.state.user.last_name} onChange={this.handleChange} />
-             <Form.Input label='Goal' type='number' labelPosition='left' type='text'><Label basic>$</Label><Input name='goal' value={this.state.user.goal} onChange={this.handleChange}/></Form.Input>
+             <Form.Input label='Goal' type='number' labelPosition='left'><Label basic>$</Label><Input name='goal' value={this.state.user.goal} onChange={this.handleChange}/></Form.Input>
            </Form.Group>
            <Form.Group widths='equal'>
              <Form.Input label='Email' name='email' value={this.state.user.email} onChange={this.handleChange} />
@@ -85,18 +85,18 @@ export default class UserEditForm extends Component {
              {/* <Form.Dropdown label="Team" placeholder='Team' name='team_id' value={this.state.user.team_id} fluid selection options={teamOptions} onChange={this.handleTeamDropdown} /> */}
              <Form.Input label='Photo Link' name='photo' value={this.state.user.photo} onChange={this.handleChange} />
             </Form.Group>
-             <Form.Input label='Bio' name='bio' value={this.state.user.bio} onChange={this.handleChange} />
-             <Button type='submit'>Click Here to Save Changes</Button>
-           </Form>
-         </Modal.Content>
-         <Modal.Actions>
-            <Button color='red' onClick={this.handleClose} inverted>
-              <Icon name='checkmark' /> Close Window
-            </Button>
-          </Modal.Actions>
-         </Modal>
-        </Container>
-        : null
+           <Form.Input label='Bio' name='bio' value={this.state.user.bio} onChange={this.handleChange} />
+           <Button type='submit'>Click Here to Save Changes</Button>
+         </Form>
+       </Modal.Content>
+       <Modal.Actions>
+          <Button color='red' onClick={this.handleClose} inverted>
+            <Icon name='checkmark' /> Close Window
+          </Button>
+        </Modal.Actions>
+       </Modal>
+      </Container>
+      : null
       )
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Form, Button, Label, Input } from 'semantic-ui-react'
+import { Container, Form, Button, Label, Input } from 'semantic-ui-react'
 
 export default class UserForm extends Component {
   state = {
@@ -65,8 +65,6 @@ export default class UserForm extends Component {
     })
       return(
       <Container>
-
-        
         <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
            <Form.Group widths='equal'>
              <Form.Input label='First Name' name='first_name' value={this.state.first_name} onChange={this.handleChange} />

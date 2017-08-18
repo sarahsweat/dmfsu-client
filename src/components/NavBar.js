@@ -3,7 +3,6 @@ import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 export default class NavBar extends Component {
-
   constructor(props) {
     super(props)
 
@@ -14,7 +13,6 @@ export default class NavBar extends Component {
 
   render() {
     const { activeItem } = this.state
-
     return (
 
         <Menu fixed='top' color='black' inverted pointing >

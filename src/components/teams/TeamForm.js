@@ -7,7 +7,6 @@ export default class TeamForm extends Component {
       bio: undefined,
       photo: undefined,
       goal: undefined
-
     }
 
     handleChange = (event) => {
@@ -49,9 +48,9 @@ export default class TeamForm extends Component {
              <Form.Input label='Goal' labelPosition='left' type='text'><Label basic>$</Label><Input name='goal' value={this.state.goal} onChange={this.handleChange}/></Form.Input>
              <Form.Input label='Photo Link' name='photo' value={this.state.photo} onChange={this.handleChange} />
            </Form.Group>
-             <Form.Input label='Bio' name='bio' value={this.state.bio} onChange={this.handleChange} />
-             <Button type='submit'>Create Team</Button>
-           </Form>
+           <Form.Input label='Bio' name='bio' value={this.state.bio} onChange={this.handleChange} />
+           <Button type='submit'>Create Team</Button>
+         </Form>
         </Container>
       )
     }
