@@ -36,7 +36,7 @@ export default class UserProfileContainer extends React.Component {
               <Grid.Row columns={2}>
                 <Grid.Column >
                   <Image src={this.state.user.photo} centered='true' size='huge' shape='rounded' className='shadow-box'/>
-                  {this.state.user.individual_total > 1000 ? <Header as='h1' textAlign='center'>COMMA CLUB MEMBER!!</Header> : <div><br/><br/></div> }
+                  {this.state.user.individual_total > 1000 ? <Header as='h2' className='comma-font' textAlign='center'>Comma Club Member!!</Header> : <div><br/><br/></div> }
                   <UserEditForm handlePost={this.props.handlePost} handlePut={this.handlePut} teams={this.props.teams}/>
                   <img src='comma.png'/>
                 </Grid.Column>
@@ -61,14 +61,28 @@ export default class UserProfileContainer extends React.Component {
                       <Statistic.Value>{}</Statistic.Value>
                     </Statistic> */}
                   </Statistic.Group>
-                  <Divider/>
-                  <Header as='h1' textAlign='center'>{this.state.user.first_name}'s Recent Donations</Header>
-                  <DonationList donations={this.props.donations.filter(d => d.dancer_id === this.state.user.id).sort(function(a,b) {return (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0);} ).slice(0,5) } />
-                </Grid.Column>
+                  </Grid.Column>
               </Grid.Row>
             </Grid>
           </Card.Content>
         </Card>
+        <br/>
+
+        <Card.Group itemsPerRow={2}>
+          <Card fluid className='bg shadow-box'>
+            <Card.Content>
+              <Header className='sub-title' as='h1' textAlign='center'>Donations Received</Header>
+              <DonationList donations={this.props.donations.filter(d => d.dancer_id === this.state.user.id).sort(function(a,b) {return (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0);} ) } />
+            </Card.Content>
+          </Card>
+          <Card fluid className='bg shadow-box'>
+            <Card.Content>
+              <Header as='h1' className='sub-title' textAlign='center'>Donations Given</Header>
+              <DonationList donations={this.props.donations.filter(d => d.donor_id === this.state.user.id).sort(function(a,b) {return (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0);} ) } />
+            </Card.Content>
+          </Card>
+        </Card.Group>
+
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
