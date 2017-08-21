@@ -6,7 +6,8 @@ export default class UserEditForm extends Component {
     super()
 
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      user: { }
     }
   }
 
@@ -54,6 +55,11 @@ export default class UserEditForm extends Component {
           'content-type': 'application/json',
           'accept': 'application/json',
         }
+      })
+      .then(() => {
+        fetch(process.env.REACT_APP_API + `/users/${window.location.pathname.slice(7)}`)
+        .then(data => data.json())
+        .then(user => this.setState({user}))
       })
       .then(() => this.props.handlePost())
       .then(() => this.props.handlePut())

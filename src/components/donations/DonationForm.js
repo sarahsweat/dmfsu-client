@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Form, Button, Label, Input } from 'semantic-ui-react'
+import { Container, Form, Button, Label, Input, Message } from 'semantic-ui-react'
 
 export default class DonationForm extends Component {
   constructor(props){
@@ -10,7 +10,8 @@ export default class DonationForm extends Component {
       dancer_id: undefined,
       amount: undefined,
       message: undefined,
-      donation_id: undefined
+      donation_id: undefined,
+      errors: []
     }
   }
 
@@ -40,8 +41,21 @@ export default class DonationForm extends Component {
         'accept': 'application/json',
       }
     })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.errors) {
+        this.setState({
+          errors: data.errors
+      })
+      } else {
+        this.setState({
+          errors: []
+        })
+      }
+    })
     .then(() => this.props.handlePost())
     .then(() => this.setState({
+      ...this.state.errors,
       donor_id: undefined,
       dancer_id: undefined,
       amount: '',
@@ -63,6 +77,12 @@ export default class DonationForm extends Component {
     })
       return(
         <Container>
+          {this.state.errors.length > 0 ?
+            <Message negative>
+              <Message.Header>Error</Message.Header>
+              <p>{this.state.errors[0]}</p>
+            </Message>
+            : null }
            <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
              <Form.Group widths='equal'>
                <Form.Dropdown label="Donor" placeholder='Donor' name='donor_id' value={this.state.donor_id} fluid selection options={userOptions} onChange={this.handleDonorDropdown} />

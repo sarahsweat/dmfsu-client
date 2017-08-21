@@ -18,7 +18,7 @@ export default class MilestonesContainer extends React.Component {
           <Grid.Column className='milestone-bg shadow-box'>
                 <Bar  type='bar'
                       data={{
-                        labels: ["$300", "$500", "$750", "$1000", "$1500", "$2000", "$2300"],
+                        labels: ["$300", "$500", "$750", "$1,000", "$1,500", "$2,000", "$2,200"],
                         datasets: [{
                           label: "# of Dancers",
                           data: this.props.data,

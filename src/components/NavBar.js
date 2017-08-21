@@ -9,7 +9,10 @@ export default class NavBar extends Component {
     this.state = { activeItem: undefined}
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name })
+    window.scrollTo(0,0)
+  }
 
   render() {
     const { activeItem } = this.state
