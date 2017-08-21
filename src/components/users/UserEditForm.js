@@ -100,21 +100,3 @@ export default class UserEditForm extends Component {
       )
     }
 }
-
-
-
-
-
-//
-//
-//
-// const teamOptions = this.props.teams.map((team,index) => { return {
-//   key: index,
-//   text: `${team.name}`,
-//   value: team.id,
-//   image: {
-//     avatar: true,
-//     src: team.photo
-//   }
-// }
-// })

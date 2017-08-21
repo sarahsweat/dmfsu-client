@@ -21,6 +21,7 @@ export default class NavBar extends Component {
           <Link to='/signup'><Menu.Item className='nav-font' name='signup' active={activeItem === 'signup'} onClick={this.handleItemClick}>Signup</Menu.Item></Link>
           <Link to='/users'><Menu.Item className='nav-font' name='users' active={activeItem === 'users'} onClick={this.handleItemClick}>Fundraisers</Menu.Item></Link>
           <Link to='/teams'><Menu.Item className='nav-font' name='teams' active={activeItem === 'teams'} onClick={this.handleItemClick}>Teams</Menu.Item></Link>
+          <Link to='/milestones'><Menu.Item className='nav-font' name='milestones' active={activeItem === 'milestones'} onClick={this.handleItemClick}>Milestones</Menu.Item></Link>
         </Menu>
 
     )

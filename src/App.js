@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HomeContainer from './components/HomeContainer'
+import MilestonePageContainer from './components/milestones/MilestonePageContainer'
 import DonateContainer from './components/donations/DonateContainer'
 import UserContainer from './components/users/UserContainer'
 import SignupContainer from './components/users/SignupContainer'
@@ -98,6 +99,7 @@ class App extends Component {
             <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} />}} />
             <Route path='/teams/:id' render={() => {return <TeamProfileContainer />}} />
             <Route path='/map' render={() => {return <DonationMap />}}/>
+            <Route path='/milestones' render={() => {return <MilestonePageContainer users={this.state.users} data={this.state.data} />}} />
           </div>
         </div>
       </Router>

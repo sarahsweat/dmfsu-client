@@ -67,22 +67,20 @@ export default class HomeContainer extends Component {
 
           <br/>
 
-
-              <Card.Group itemsPerRow={2}>
-                <Card fluid className='bg shadow-box'>
-                  <Card.Content>
-                    <Header className='sub-title' as='h1' textAlign='center'>Recent Donations</Header>
-                    <DonationList donations={this.props.donations.slice(-5)} />
-                  </Card.Content>
-                </Card>
-                <Card fluid className='bg shadow-box'>
-                  <Card.Content>
-                    <Header as='h1' className='sub-title' textAlign='center'>Relive DM 2017!</Header>
-                    <iframe style={{marginTop: "12"}} className='shadow-box' width="520" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowFullScreen></iframe>
-                  </Card.Content>
-                </Card>
-              </Card.Group>
-
+          <Card.Group itemsPerRow={2}>
+            <Card fluid className='bg shadow-box'>
+              <Card.Content>
+                <Header className='sub-title' as='h1' textAlign='center'>Recent Donations</Header>
+                <DonationList donations={this.props.donations.slice(-5)} />
+              </Card.Content>
+            </Card>
+            <Card fluid className='bg shadow-box'>
+              <Card.Content>
+                <Header as='h1' className='sub-title' textAlign='center'>Relive DM 2017!</Header>
+                <iframe style={{marginTop: "11"}} className='shadow-box' width="520" height="315" src="https://www.youtube.com/embed/HDK2IhexWQM" allowFullScreen></iframe>
+              </Card.Content>
+            </Card>
+          </Card.Group>
 
           <br/>
 
