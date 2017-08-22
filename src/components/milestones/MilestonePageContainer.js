@@ -25,7 +25,7 @@ const MilestonePageContainer = (props) => {
         <Card.Content>
           <Header as='h2' textAlign='center'>2,200 Club Members</Header>
           <br/>
-          <UserList users={props.users.filter(user => user.individual_total > 2200)} />
+          <UserList users={props.users.filter(user => user.individual_total > 2199)} />
         </Card.Content>
       </Card>
 
@@ -35,7 +35,7 @@ const MilestonePageContainer = (props) => {
         <Card.Content>
           <Header  as='h2' textAlign='center'>Comma Club Members</Header>
           <br/>
-          <UserList users={props.users.filter(user => user.individual_total > 1000)} />
+          <UserList users={props.users.filter(user => user.individual_total > 999)} />
         </Card.Content>
       </Card>
 
@@ -49,7 +49,7 @@ const MilestonePageContainer = (props) => {
       </Card>
 
       <br/><br/><br/>
-      
+
     </Container>
   )
 }

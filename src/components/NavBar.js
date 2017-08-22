@@ -27,11 +27,11 @@ export default class NavBar extends Component {
           <Link to='/signup'><Menu.Item className='nav-font' name='signup' active={activeItem === 'signup'} onClick={this.handleItemClick}>Signup</Menu.Item></Link>
 
           <Menu.Menu position='right'>
-            <Link to='/tumblr'><Menu.Item position='right'><Icon className='icon-black' name='tumblr' size='large'/></Menu.Item></Link>
-            <Link to='/youtube'><Menu.Item position='right'><Icon className='icon-black' name='youtube play' size='large'/></Menu.Item></Link>
-            <Link to='/twitter'><Menu.Item position='right'><Icon className='icon-black' name='twitter' size='large'/></Menu.Item></Link>
-            <Link to='/instagram'><Menu.Item position='right'><Icon className='icon-black' name='instagram' size='large'/></Menu.Item></Link>
-            <Link to='/facebook'><Menu.Item position='right'><Icon className='icon-black' name='facebook f' size='large'/></Menu.Item></Link>
+            <a href='http://dmatfsu.tumblr.com/' target='_blank'><Menu.Item position='right'><Icon className='icon-black' name='tumblr' size='large'/></Menu.Item></a>
+            <a href='https://www.youtube.com/user/DMatFSU' target='_blank'><Menu.Item position='right'><Icon className='icon-black' name='youtube play' size='large'/></Menu.Item></a>
+            <a href='https://twitter.com/DM_FSU' target='_blank'><Menu.Item position='right'><Icon className='icon-black' name='twitter' size='large'/></Menu.Item></a>
+            <a href='https://www.instagram.com/dmfsu/' target='_blank'><Menu.Item position='right'><Icon className='icon-black' name='instagram' size='large'/></Menu.Item></a>
+            <a href='https://www.facebook.com/dmfsu' target='_blank'><Menu.Item position='right'><Icon className='icon-black' name='facebook f' size='large'/></Menu.Item></a>
           </Menu.Menu>
         </Menu>
 
