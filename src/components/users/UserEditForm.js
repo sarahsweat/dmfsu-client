@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Form, Button, Label, Input, Modal, Icon } from 'semantic-ui-react'
+import { Container, Form, Button, Label, Input, Modal, Icon, Message } from 'semantic-ui-react'
 
 export default class UserEditForm extends Component {
   constructor(props){
@@ -37,7 +37,6 @@ export default class UserEditForm extends Component {
 
     handleSubmit = (event) => {
       event.preventDefault()
-
       fetch(process.env.REACT_APP_API + `/users/${window.location.pathname.slice(7)}`, {
         method: 'PUT',
         body: JSON.stringify({
@@ -47,7 +46,7 @@ export default class UserEditForm extends Component {
           goal: event.target[2].value,
           email: event.target[3].value,
           zip: event.target[4].value,
-          // team_id: event.target[5].value,
+          team_id: this.state.user.team,
           photo: event.target[5].value,
           bio: event.target[6].value
         }),
@@ -70,6 +69,16 @@ export default class UserEditForm extends Component {
     }
 
     render(){
+      const teamOptions = this.props.teams.map((team,index) => { return {
+        key: index,
+        text: `${team.name}`,
+        value: team.id,
+        image: {
+          avatar: true,
+          src: team.photo
+        }
+      }
+    })
       return(
         this.state.user ?
         <Container centered='true' textAlign='center'>
@@ -78,7 +87,7 @@ export default class UserEditForm extends Component {
           onClose={this.handleClose}
           >
           <Modal.Header as='h2' textAlign='center'>Edit this fundraiser!</Modal.Header>
-          <Modal.Content >
+          <Modal.Content className='bg'>
            <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
             <Form.Group widths='equal'>
              <Form.Input label='First Name' name='first_name' value={this.state.user.first_name} onChange={this.handleChange} />
@@ -88,7 +97,7 @@ export default class UserEditForm extends Component {
            <Form.Group widths='equal'>
              <Form.Input label='Email' name='email' value={this.state.user.email} onChange={this.handleChange} />
              <Form.Input label='Zipcode' name='zip' value={this.state.user.zip} onChange={this.handleChange} />
-             {/* <Form.Dropdown label="Team" placeholder='Team' name='team_id' value={this.state.user.team_id} fluid selection options={teamOptions} onChange={this.handleTeamDropdown} /> */}
+             <Form.Dropdown label="Team" placeholder='Team' name='team_id' value={this.state.user.team_id} fluid selection options={teamOptions} onChange={this.handleTeamDropdown} />
              <Form.Input label='Photo Link' name='photo' value={this.state.user.photo} onChange={this.handleChange} />
             </Form.Group>
            <Form.Input label='Bio' name='bio' value={this.state.user.bio} onChange={this.handleChange} />

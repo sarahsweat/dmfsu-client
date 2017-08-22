@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Form, Button, Label, Input } from 'semantic-ui-react'
+import { Container, Form, Button, Label, Input, Message } from 'semantic-ui-react'
 
 export default class UserForm extends Component {
   state = {
@@ -12,7 +12,8 @@ export default class UserForm extends Component {
       bio: '',
       goal: 500,
       team_id: undefined,
-      team_captain: false
+      team_captain: false,
+      errors: []
     }
 
     handleChange = (event) => {
@@ -33,8 +34,21 @@ export default class UserForm extends Component {
           'accept': 'application/json',
         }
       })
+      .then((res) => res.json())
+      .then((data) =>   {
+        if (data.errors) {
+          this.setState({
+            errors: data.errors
+        })
+        } else {
+          this.setState({
+            errors: []
+          })
+        }
+      })
       .then(() => this.props.handlePost())
       .then(() => this.setState({
+        ...this.state.errors,
         user_id: '',
         first_name: '',
         last_name: '',
@@ -65,6 +79,12 @@ export default class UserForm extends Component {
     })
       return(
       <Container>
+        {this.state.errors.length > 0 ?
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <p>{this.state.errors[0]}</p>
+          </Message>
+          : null }
         <Form size='large' id='donation-form' onSubmit={this.handleSubmit} >
            <Form.Group widths='equal'>
              <Form.Input label='First Name' name='first_name' value={this.state.first_name} onChange={this.handleChange} />

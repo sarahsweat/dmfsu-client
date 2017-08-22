@@ -1,6 +1,7 @@
 import React from 'react'
-import { Header, Container, Image, Grid, Progress, Card, Statistic } from 'semantic-ui-react'
+import { Header, Container, Image, Grid, Progress, Card, Statistic, Divider } from 'semantic-ui-react'
 import UserList from '../users/UserList'
+import TeamEditForm from './TeamEditForm'
 
 export default class TeamProfileContainer extends React.Component {
   constructor(props) {
@@ -12,6 +13,12 @@ export default class TeamProfileContainer extends React.Component {
   }
 
   componentWillMount() {
+    fetch(process.env.REACT_APP_API + `/teams/${window.location.pathname.slice(7)}`)
+    .then(data => data.json())
+    .then(team => this.setState({team}))
+  }
+
+  handlePut = () => {
     fetch(process.env.REACT_APP_API + `/teams/${window.location.pathname.slice(7)}`)
     .then(data => data.json())
     .then(team => this.setState({team}))
@@ -29,6 +36,8 @@ export default class TeamProfileContainer extends React.Component {
                 <Grid.Row columns={2}>
                   <Grid.Column>
                     <Image src={this.state.team.photo} size='massive' centered='true' className='shadow-box'/>
+                    <Divider/>
+                    <TeamEditForm handlePost={this.props.handlePost} handlePut={this.handlePut}/>
                   </Grid.Column>
                   <Grid.Column>
                     <Header className='main-title' as='h1' textAlign='center'>{this.state.team.name}</Header>
@@ -39,6 +48,7 @@ export default class TeamProfileContainer extends React.Component {
                       <Statistic.Value>${this.state.team.team_total.toLocaleString()}</Statistic.Value>
                       <Statistic.Label>Raised</Statistic.Label>
                     </Statistic>
+
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
