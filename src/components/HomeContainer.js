@@ -8,6 +8,7 @@ import Stats from './stats/Stats'
 import MilestonesContainer from './milestones/MilestonesContainer'
 import DonationMap from './DonationMap'
 import { Container, Header, Image, Grid, Card } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import '../index.css'
 
 export default class HomeContainer extends Component {

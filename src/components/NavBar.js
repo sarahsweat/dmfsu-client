@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 export default class NavBar extends Component {
@@ -18,13 +18,21 @@ export default class NavBar extends Component {
     const { activeItem } = this.state
     return (
 
-        <Menu fixed='top' color='black' inverted pointing >
+        <Menu fixed='top' color='black' inverted pointing>
           <Link to='/'><Menu.Item className='nav-font' name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>Home</Menu.Item></Link>
-          <Link to='/donate'><Menu.Item className='nav-font' name='donate' active={activeItem === 'donate'} onClick={this.handleItemClick}>Donate</Menu.Item></Link>
-          <Link to='/signup'><Menu.Item className='nav-font' name='signup' active={activeItem === 'signup'} onClick={this.handleItemClick}>Signup</Menu.Item></Link>
+          <Link to='/milestones'><Menu.Item className='nav-font' name='milestones' active={activeItem === 'milestones'} onClick={this.handleItemClick}>Milestones</Menu.Item></Link>
           <Link to='/users'><Menu.Item className='nav-font' name='users' active={activeItem === 'users'} onClick={this.handleItemClick}>Fundraisers</Menu.Item></Link>
           <Link to='/teams'><Menu.Item className='nav-font' name='teams' active={activeItem === 'teams'} onClick={this.handleItemClick}>Teams</Menu.Item></Link>
-          <Link to='/milestones'><Menu.Item className='nav-font' name='milestones' active={activeItem === 'milestones'} onClick={this.handleItemClick}>Milestones</Menu.Item></Link>
+          <Link to='/donate'><Menu.Item className='nav-font' name='donate' active={activeItem === 'donate'} onClick={this.handleItemClick}>Donate</Menu.Item></Link>
+          <Link to='/signup'><Menu.Item className='nav-font' name='signup' active={activeItem === 'signup'} onClick={this.handleItemClick}>Signup</Menu.Item></Link>
+
+          <Menu.Menu position='right'>
+            <Link to='/tumblr'><Menu.Item position='right'><Icon className='icon-black' name='tumblr' size='large'/></Menu.Item></Link>
+            <Link to='/youtube'><Menu.Item position='right'><Icon className='icon-black' name='youtube play' size='large'/></Menu.Item></Link>
+            <Link to='/twitter'><Menu.Item position='right'><Icon className='icon-black' name='twitter' size='large'/></Menu.Item></Link>
+            <Link to='/instagram'><Menu.Item position='right'><Icon className='icon-black' name='instagram' size='large'/></Menu.Item></Link>
+            <Link to='/facebook'><Menu.Item position='right'><Icon className='icon-black' name='facebook f' size='large'/></Menu.Item></Link>
+          </Menu.Menu>
         </Menu>
 
     )

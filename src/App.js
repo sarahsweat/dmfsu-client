@@ -100,6 +100,11 @@ class App extends Component {
             <Route path='/teams/:id' render={() => {return <TeamProfileContainer handlePost={this.handlePost} />}} />
             <Route path='/map' render={() => {return <DonationMap />}}/>
             <Route path='/milestones' render={() => {return <MilestonePageContainer users={this.state.users} data={this.state.data} />}} />
+            <Route path='/tumblr' component={() => window.location = 'http://dmatfsu.tumblr.com/'}/>
+            <Route path='/facebook' component={() => window.location = 'https://www.facebook.com/dmfsu'}/>
+            <Route path='/youtube' component={() => window.location = 'https://www.youtube.com/user/DMatFSU'}/>
+            <Route path='/twitter' component={() => window.location = 'https://twitter.com/DM_FSU'}/>
+            <Route path='/instagram' component={() => window.location = 'https://www.instagram.com/dmfsu/'}/>
           </div>
         </div>
       </Router>
