@@ -39,11 +39,10 @@ export default class UserProfileContainer extends React.Component {
                   {this.state.user.individual_total > 1000 ? <Header as='h2' className='comma-font' textAlign='center'>Comma Club Member!!</Header> : null }
                   <Divider/>
                   <UserEditForm handlePost={this.props.handlePost} handlePut={this.handlePut} teams={this.props.teams}/>
-                  <img src='../photos/comma.png'/>
                 </Grid.Column>
                 <Grid.Column>
                   <Header className='main-title' as='h1' textAlign='center'>{this.state.user.first_name} {this.state.user.last_name}</Header>
-                  <Header as='h1' textAlign='center'>Team: <Link to={`/teams/${this.state.user.team.id}`}> {this.state.user.team.name}</Link></Header>
+                  {this.state.user.team ? <Header as='h1' textAlign='center'>Team: <Link to={`/teams/${this.state.user.team.id}`}> {this.state.user.team.name}</Link></Header> : null }
                   <Header as='h4' textAlign='center'>{this.state.user.bio}</Header>
                   <Header as='h3' textAlign='center'>{this.state.user.first_name} has a goal of ${this.state.user.goal.toLocaleString()}  and has raised: ${this.state.user.individual_total.toLocaleString()} so far!</Header>
                   <Progress percent={Math.round((this.state.user.individual_total / this.state.user.goal)*100)} progress success />
