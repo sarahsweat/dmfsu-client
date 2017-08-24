@@ -72,7 +72,7 @@ export default class HomeContainer extends Component {
             <Card fluid className='bg shadow-box'>
               <Card.Content>
                 <Header className='sub-title' as='h1' textAlign='center'>Recent Donations</Header>
-                <DonationList donations={this.props.donations.slice(-5)} />
+                <DonationList donations={this.props.donations.slice(-10).sort(function(a,b) {return (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0);} )} />
               </Card.Content>
             </Card>
             <Card fluid className='bg shadow-box'>

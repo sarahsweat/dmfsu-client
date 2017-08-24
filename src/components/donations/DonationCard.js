@@ -1,5 +1,6 @@
 import React from 'react'
 import { Feed, Image } from 'semantic-ui-react'
+import moment from 'moment'
 
 const DonationCard = (props) => {
 
@@ -12,7 +13,7 @@ const DonationCard = (props) => {
         <Feed.Summary>
           {props.donation.donor.first_name} donated ${props.donation.amount} to {props.donation.dancer.first_name}
           <Feed.Date>
-            {props.donation.date}
+            {moment(props.donation.created_at).fromNow()}
           </Feed.Date>
         </Feed.Summary>
         <Feed.Extra text>
