@@ -15,7 +15,7 @@ export default class MilestonesContainer extends React.Component {
           <Grid.Column>
             <Image className='shadow-box' shape='rounded' src='./Milestones.png'/>
           </Grid.Column>
-          <Grid.Column className='milestone-bg shadow-box'>
+          <Grid.Column  style={{padding: '25px 25px 25px 25px'}}>
                 <Bar  type='bar'
                       data={{
                         labels: ["$300", "$500", "$750", "$1,000", "$1,500", "$2,000", "$2,200"],
