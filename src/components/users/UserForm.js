@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Form, Button, Label, Input, Message } from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom'
 
 export default class UserForm extends Component {
   state = {
@@ -60,6 +61,12 @@ export default class UserForm extends Component {
         team_id: undefined,
         team_captain: false
       }))
+      .then(() => {
+        if (this.props.match.path == '/signup' && this.state.errors.length < 1) {
+          this.props.history.push('/')
+        }
+      })
+
     }
 
     handleTeamDropdown = (e,data) => {
@@ -77,7 +84,10 @@ export default class UserForm extends Component {
         }
       }
     })
+
+
       return(
+
       <Container>
         {this.state.errors.length > 0 ?
           <Message negative>

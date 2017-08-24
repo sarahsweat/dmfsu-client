@@ -11,7 +11,7 @@ const SignupContainer = (props) => {
         <Card.Content>
           <Header className='main-title' as='h1' textAlign='center'>Signup!</Header>
           <br/>
-          <UserForm teams={props.teams} handlePost={props.handlePost}/>
+          <UserForm teams={props.teams} handlePost={props.handlePost} history={props.history} match={props.match}/>
         </Card.Content>
       </Card>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

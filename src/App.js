@@ -91,9 +91,9 @@ class App extends Component {
           <div className='home-bg'>
             <Route path='/' render={() => {return <NavBar/>}} />
             <Switch>
-              <Route exact path='/' render={() => {return <HomeContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} data={this.state.data} />}}/>
+              <Route exact path='/' render={({match}) => {return <HomeContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} data={this.state.data} match={match}/>}}/>
               <Route exact path='/donate' render={() => {return <DonateContainer handlePost={this.handlePost} users={this.state.users}/>}} />
-              <Route exact path='/signup' render={() => {return <SignupContainer teams={this.state.teams} handlePost={this.handlePost}/>}} />
+              <Route exact path='/signup' render={({history, match}) => {return <SignupContainer teams={this.state.teams} handlePost={this.handlePost} history={history} match={match}/>}} />
               <Route exact path='/users' render={() => {return <UserContainer handleSearch={this.handleUserSearch} users={this.state.currentUsers}/>}} />
               <Route exact path='/teams' render={() => {return <TeamContainer handleSearch={this.handleTeamSearch} teams={this.state.currentTeams} handlePost={this.handlePost}/>}} />
               <Route path='/users/:id' render={() => {return <UserProfileContainer users={this.state.users} teams={this.state.teams} donations={this.state.donations} handlePost={this.handlePost} />}} />

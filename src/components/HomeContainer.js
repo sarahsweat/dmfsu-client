@@ -135,7 +135,7 @@ export default class HomeContainer extends Component {
           <Card fluid className='bg shadow-box'>
             <Card.Content>
               <Header as='h2' textAlign='center'>Signup to be a Fundraiser!</Header>
-              <UserForm handlePost={this.props.handlePost}  teams={this.props.teams}/>
+              <UserForm handlePost={this.props.handlePost}  teams={this.props.teams} match={this.props.match}/>
             </Card.Content>
           </Card>
 
